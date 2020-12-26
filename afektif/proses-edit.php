@@ -5,14 +5,13 @@ if (isset($_POST['edit'])) {
   include("../koneksi.php");
 
   // membuat variabel untuk menampung data dari form edit
-    $id_afektif = $_POST["id_afektif"];
-    $range_penilaian_afektif = $_POST["range_penilaian_afektif"];
     $bobot_afektif = $_POST["bobot_afektif"];
+    $range_penilaian_afektif = $_POST["range_penilaian_afektif"];
 
   //buat dan jalankan query UPDATE
   $query  = "UPDATE afektif SET ";
-  $query .= "range_penilaian_afektif = '$range_penilaian_afektif', bobot_afektif = '$bobot_afektif'";
-  $query .= "WHERE id_afektif = '$id_afektif'";
+  $query .= "range_penilaian_afektif = '$range_penilaian_afektif'";
+  $query .= "WHERE bobot_afektif = '$bobot_afektif'";
 
   $row = mysqli_query($conn, $query);
 

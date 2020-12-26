@@ -5,14 +5,13 @@ if (isset($_POST['edit'])) {
   include("../koneksi.php");
 
   // membuat variabel untuk menampung data dari form edit
-    $id_eskul = $_POST["id_eskul"];
-    $range_penilaian_eskul = $_POST["range_penilaian_eskul"];
     $bobot_eskul = $_POST["bobot_eskul"];
+    $range_penilaian_eskul = $_POST["range_penilaian_eskul"];
 
   //buat dan jalankan query UPDATE
   $query  = "UPDATE eskul SET ";
-  $query .= "range_penilaian_eskul = '$range_penilaian_eskul', bobot_eskul = '$bobot_eskul'";
-  $query .= "WHERE id_eskul = '$id_eskul'";
+  $query .= "range_penilaian_eskul = '$range_penilaian_eskul'";
+  $query .= "WHERE bobot_eskul = '$bobot_eskul'";
 
   $row = mysqli_query($conn, $query);
 

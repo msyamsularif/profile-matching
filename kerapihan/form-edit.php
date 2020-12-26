@@ -9,12 +9,12 @@ if ($_SESSION['level'] == "") {
 include '../koneksi.php';
 
 // mengecek apakah di url ada nilai GET id
-if (isset($_GET['id_kerapihan'])) {
+if (isset($_GET['bobot_kerapihan'])) {
     // ambil nilai id dari url dan disimpan dalam variabel $id
-    $id_kerapihan = ($_GET["id_kerapihan"]);
+    $bobot_kerapihan = ($_GET["bobot_kerapihan"]);
 
     // menampilkan data mahasiswa dari database yang mempunyai id=$id
-    $query = "SELECT * FROM kerapihan WHERE id_kerapihan='$id_kerapihan'";
+    $query = "SELECT * FROM kerapihan WHERE bobot_kerapihan='$bobot_kerapihan'";
     $row = mysqli_query($conn, $query);
     // mengecek apakah query gagal
     if (!$row) {
@@ -24,9 +24,8 @@ if (isset($_GET['id_kerapihan'])) {
     // mengambil data dari database dan membuat variabel" utk menampung data
     // variabel ini nantinya akan ditampilkan pada form
     $row = mysqli_fetch_assoc($row);
-    $id_kerapihan = $row["id_kerapihan"];
-    $range_penilaian_kerapihan = $row["range_penilaian_kerapihan"];
     $bobot_kerapihan = $row["bobot_kerapihan"];
+    $range_penilaian_kerapihan = $row["range_penilaian_kerapihan"];
 } else {
     // apabila tidak ada data GET id pada akan di redirect ke index.php
     header("location:index.php");
@@ -110,7 +109,7 @@ if (isset($_GET['id_kerapihan'])) {
                                                 <h4 class="card-title">Edit Data Kerapihan</h4>
                                                 <br />
                                                 <form class="form-sample" action="proses-edit.php" method="post">
-                                                    <input name="id_kerapihan" type="hidden" value="<?php echo $id_kerapihan; ?>" />
+                                                    <input name="bobot_kerapihan" type="hidden" value="<?php echo $bobot_kerapihan; ?>" />
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group row">

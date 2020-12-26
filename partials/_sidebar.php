@@ -87,6 +87,12 @@ include("../koneksi.php");
                   </li>
                 </ul>
               </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../nilai_standar">
+                <i class="menu-icon mdi mdi-account-card-details"></i>
+                <span class="menu-title">Data Nilai Standar</span>
+              </a>
             </li>';
     } else {
       header("location:../error-404.php");

@@ -9,12 +9,12 @@ if ($_SESSION['level'] == "") {
 include '../koneksi.php';
 
 // mengecek apakah di url ada nilai GET id
-if (isset($_GET['bobot_keterampilan'])) {
+if (isset($_GET['id_nilai_standar'])) {
     // ambil nilai id dari url dan disimpan dalam variabel $id
-    $bobot_keterampilan = ($_GET["bobot_keterampilan"]);
+    $id_nilai_standar = ($_GET["id_nilai_standar"]);
 
     // menampilkan data mahasiswa dari database yang mempunyai id=$id
-    $query = "SELECT * FROM keterampilan WHERE bobot_keterampilan='$bobot_keterampilan'";
+    $query = "SELECT * FROM nilai_standar WHERE id_nilai_standar='$id_nilai_standar'";
     $row = mysqli_query($conn, $query);
     // mengecek apakah query gagal
     if (!$row) {
@@ -24,8 +24,14 @@ if (isset($_GET['bobot_keterampilan'])) {
     // mengambil data dari database dan membuat variabel" utk menampung data
     // variabel ini nantinya akan ditampilkan pada form
     $row = mysqli_fetch_assoc($row);
-    $bobot_keterampilan = $row["bobot_keterampilan"];
-    $range_penilaian_keterampilan = $row["range_penilaian_keterampilan"];
+    $id_nilai_standar = $row["id_nilai_standar"];
+    $nilai_standar_psikomotor = $row["nilai_standar_psikomotor"];
+    $nilai_standar_kognitif = $row["nilai_standar_kognitif"];
+    $nilai_standar_afektif = $row["nilai_standar_afektif"];
+    $nilai_standar_keterampilan = $row["nilai_standar_keterampilan"];
+    $nilai_standar_eskul = $row["nilai_standar_eskul"];
+    $nilai_standar_kejujuran = $row["nilai_standar_kejujuran"];
+    $nilai_standar_kerapihan = $row["nilai_standar_kerapihan"];
 } else {
     // apabila tidak ada data GET id pada akan di redirect ke index.php
     header("location:index.php");
@@ -106,27 +112,68 @@ if (isset($_GET['bobot_keterampilan'])) {
                                     <div class="col-12 grid-margin">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="card-title">Edit Data Keterampilan</h4>
+                                                <h4 class="card-title">Edit Data Nilai Standar</h4>
                                                 <br />
                                                 <form class="form-sample" action="proses-edit.php" method="post">
-                                                    <input name="bobot_keterampilan" type="hidden" value="<?php echo $bobot_keterampilan; ?>" />
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                    <input type="text" name="id_nilai_standar" class="form-control" value="<?php echo $id_nilai_standar; ?>" hidden/>
+                                                    <div class="col-md-6">
                                                             <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">RANGE PENILAIAN</label>
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR PSIKOMOTOR</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" name="range_penilaian_keterampilan" class="form-control" value="<?php echo $range_penilaian_keterampilan; ?>" />
+                                                                    <input type="text" name="nilai_standar_psikomotor" class="form-control" value="<?php echo $nilai_standar_psikomotor; ?>" />
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">BOBOT</label>
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR KOGNITIF</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" name="bobot_keterampilan" class="form-control" value="<?php echo $bobot_keterampilan; ?>" />
+                                                                    <input type="text" name="nilai_standar_kognitif" class="form-control" value="<?php echo $nilai_standar_kognitif; ?>" />
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR AFEKTIF</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_standar_afektif" class="form-control" value="<?php echo $nilai_standar_afektif; ?>" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR KETERAMPILAN</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_standar_keterampilan" class="form-control" value="<?php echo $nilai_standar_keterampilan; ?>" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR ESKUL</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_standar_eskul" class="form-control" value="<?php echo $nilai_standar_eskul; ?>" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR KEJUJURAN</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_standar_kejujuran" class="form-control" value="<?php echo $nilai_standar_kejujuran; ?>" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR KERAPIHAN</label>
+                                                                <div class="col-sm-9">
+                                                                <input type="text" name="nilai_standar_kerapihan" class="form-control" value="<?php echo $nilai_standar_kerapihan; ?>" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
 
                                                         <div class="form-group row">

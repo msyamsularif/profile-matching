@@ -74,7 +74,7 @@ label {
         <div class="col-lg-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Table Kognitif</h4>
+              <h4 class="card-title">Table Nilai Standar</h4>
               <h5 class="card-description">
                 <a href="input.php">Tambah data</a>
               </h5>
@@ -82,8 +82,8 @@ label {
           <div class="row">
 
           <?php
-					if($_SESSION['level'] == "1"){
-          $sql = 'SELECT * FROM kognitif';
+		      if($_SESSION['level'] == "1"){
+          $sql = 'SELECT * FROM nilai_standar';
 					}
 					else{
 						header('location:../error-404.php');
@@ -98,8 +98,13 @@ label {
             <thead>
 			      <tr>
                 <th>NO</th>
-                <th>Range Penilaian</th>
-                <th>Bobot</th>
+                <th>Nilai Standar Psikomotor</th>
+                <th>Nilai Stadar Kognitif</th>
+                <th>Nilai Stadar Afektif</th>
+                <th>Nilai Stadar Keterampilan</th>
+                <th>Nilai Stadar Eskul</th>
+                <th>Nilai Stadar Kejujuran</th>
+                <th>Nilai Stadar Kerapihan</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -108,9 +113,14 @@ label {
                       while ($row = mysqli_fetch_array($query)) {
                         echo "<tr>";
                         echo "<td>".$no."</td>";
-                        echo "<td>".$row['range_penilaian_kognitif']."</td>";
-                        echo "<td>".$row['bobot_kognitif']."</td>";
-                        echo "<td align='center'><a href='form-edit.php?bobot_kognitif=$row[bobot_kognitif]'>Edit</a> | <a href='delete.php?bobot_kognitif=$row[bobot_kognitif]'>Delete</a></td></tr>";     
+                        echo "<td>".$row['nilai_standar_psikomotor']."</td>";
+                        echo "<td>".$row['nilai_standar_kognitif']."</td>";
+                        echo "<td>".$row['nilai_standar_afektif']."</td>";
+                        echo "<td>".$row['nilai_standar_keterampilan']."</td>";
+                        echo "<td>".$row['nilai_standar_eskul']."</td>";
+                        echo "<td>".$row['nilai_standar_kejujuran']."</td>";
+                        echo "<td>".$row['nilai_standar_kerapihan']."</td>";
+                        echo "<td align='center'><a href='form-edit.php?id_nilai_standar=$row[id_nilai_standar]'>Edit</a> | <a href='delete.php?id_nilai_standar=$row[id_nilai_standar]'>Delete</a></td></tr>";     
                       $no++;
                       }
                       echo '
@@ -118,8 +128,13 @@ label {
               <tfoot>
                 <tr>
                     <th>NO</th>
-                    <th>Range Penilaian</th>
-                    <th>Bobot</th>
+                    <th>Nilai Standar Psikomotor</th>
+                    <th>Nilai Stadar Kognitif</th>
+                    <th>Nilai Stadar Afektif</th>
+                    <th>Nilai Stadar Keterampilan</th>
+                    <th>Nilai Stadar Eskul</th>
+                    <th>Nilai Stadar Kejujuran</th>
+                    <th>Nilai Stadar Kerapihan</th>
                     <th>Action</th>
                 </tr>
             </tfoot>

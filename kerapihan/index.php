@@ -115,7 +115,7 @@ if ($_SESSION['level'] == "") {
                           echo "<td>" . $no . "</td>";
                           echo "<td>" . $row['range_penilaian_kerapihan'] . "</td>";
                           echo "<td>" . $row['bobot_kerapihan'] . "</td>";
-                          echo "<td align='center'><a href='form-edit.php?id_kerapihan=$row[id_kerapihan]'>Edit</a> | <a href='delete.php?id_kerapihan=$row[id_kerapihan]'>Delete</a></td></tr>";
+                          echo "<td align='center'><a href='form-edit.php?bobot_kerapihan=$row[bobot_kerapihan]'>Edit</a> | <a href='delete.php?bobot_kerapihan=$row[bobot_kerapihan]'>Delete</a></td></tr>";
                           $no++;
                         }
                         echo '

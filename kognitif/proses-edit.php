@@ -5,14 +5,13 @@ if (isset($_POST['edit'])) {
   include("../koneksi.php");
 
   // membuat variabel untuk menampung data dari form edit
-    $id_kognitif = $_POST["id_kognitif"];
+  $bobot_kognitif = $_POST["bobot_kognitif"];
     $range_penilaian_kognitif = $_POST["range_penilaian_kognitif"];
-    $bobot_kognitif = $_POST["bobot_kognitif"];
 
   //buat dan jalankan query UPDATE
   $query  = "UPDATE kognitif SET ";
-  $query .= "range_penilaian_kognitif = '$range_penilaian_kognitif', bobot_kognitif = '$bobot_kognitif'";
-  $query .= "WHERE id_kognitif = '$id_kognitif'";
+  $query .= "range_penilaian_kognitif = '$range_penilaian_kognitif'";
+  $query .= "WHERE bobot_kognitif = '$bobot_kognitif'";
 
   $row = mysqli_query($conn, $query);
 

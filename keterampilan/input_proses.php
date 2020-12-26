@@ -6,11 +6,11 @@ include("../koneksi.php");
 if(isset($_POST['input'])){
 
     // ambil data dari formulir
-    $range_penilaian_keterampilan = $_POST["range_penilaian_keterampilan"];
     $bobot_keterampilan = $_POST["bobot_keterampilan"];
+    $range_penilaian_keterampilan = $_POST["range_penilaian_keterampilan"];
 
     // buat query
-    $query = "INSERT INTO keterampilan VALUE ('','$range_penilaian_keterampilan', '$bobot_keterampilan')";
+    $query = "INSERT INTO keterampilan VALUE ('$bobot_keterampilan','$range_penilaian_keterampilan')";
     $row = mysqli_query($conn, $query);
 
     // apakah query simpan berhasil?

@@ -9,12 +9,12 @@ if ($_SESSION['level'] == "") {
 include '../koneksi.php';
 
 // mengecek apakah di url ada nilai GET id
-if (isset($_GET['id_afektif'])) {
+if (isset($_GET['bobot_afektif'])) {
     // ambil nilai id dari url dan disimpan dalam variabel $id
-    $id_afektif = ($_GET["id_afektif"]);
+    $bobot_afektif = ($_GET["bobot_afektif"]);
 
     // menampilkan data mahasiswa dari database yang mempunyai id=$id
-    $query = "SELECT * FROM afektif WHERE id_afektif='$id_afektif'";
+    $query = "SELECT * FROM afektif WHERE bobot_afektif='$bobot_afektif'";
     $row = mysqli_query($conn, $query);
     // mengecek apakah query gagal
     if (!$row) {
@@ -24,9 +24,8 @@ if (isset($_GET['id_afektif'])) {
     // mengambil data dari database dan membuat variabel" utk menampung data
     // variabel ini nantinya akan ditampilkan pada form
     $row = mysqli_fetch_assoc($row);
-    $id_afektif = $row["id_afektif"];
-    $range_penilaian_afektif = $row["range_penilaian_afektif"];
     $bobot_afektif = $row["bobot_afektif"];
+    $range_penilaian_afektif = $row["range_penilaian_afektif"];
 } else {
     // apabila tidak ada data GET id pada akan di redirect ke index.php
     header("location:index.php");
@@ -110,7 +109,6 @@ if (isset($_GET['id_afektif'])) {
                                                 <h4 class="card-title">Edit Data afektif</h4>
                                                 <br />
                                                 <form class="form-sample" action="proses-edit.php" method="post">
-                                                    <input name="id_afektif" type="hidden" value="<?php echo $id_afektif; ?>" />
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group row">

@@ -138,7 +138,7 @@ if ($_SESSION['level'] == "") {
                                                                 <div class="col-sm-9">
                                                                     <select name="nilai_psikomotor_siswa" class="form-control">
                                                                         <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM psikomotor");
+                                                                        $query = mysqli_query($conn, "SELECT * FROM psikomotor ORDER BY bobot_psikomotor DESC");
                                                                         if ($query == false) {
                                                                             die("Terdapat Kesalahan : " . mysqli_error($conn));
                                                                         }
@@ -156,7 +156,7 @@ if ($_SESSION['level'] == "") {
                                                                 <div class="col-sm-9">
                                                                     <select name="nilai_kognitif_siswa" class="form-control">
                                                                         <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM kognitif");
+                                                                        $query = mysqli_query($conn, "SELECT * FROM kognitif ORDER BY bobot_kognitif DESC");
                                                                         if ($query == false) {
                                                                             die("Terdapat Kesalahan : " . mysqli_error($conn));
                                                                         }
@@ -174,7 +174,7 @@ if ($_SESSION['level'] == "") {
                                                                 <div class="col-sm-9">
                                                                     <select name="nilai_afektif_siswa" class="form-control">
                                                                         <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM afektif");
+                                                                        $query = mysqli_query($conn, "SELECT * FROM afektif ORDER BY bobot_afektif DESC");
                                                                         if ($query == false) {
                                                                             die("Terdapat Kesalahan : " . mysqli_error($conn));
                                                                         }
@@ -192,7 +192,7 @@ if ($_SESSION['level'] == "") {
                                                                 <div class="col-sm-9">
                                                                     <select name="nilai_keterampilan_siswa" class="form-control">
                                                                         <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM keterampilan");
+                                                                        $query = mysqli_query($conn, "SELECT * FROM keterampilan ORDER BY bobot_keterampilan DESC");
                                                                         if ($query == false) {
                                                                             die("Terdapat Kesalahan : " . mysqli_error($conn));
                                                                         }
@@ -210,7 +210,7 @@ if ($_SESSION['level'] == "") {
                                                                 <div class="col-sm-9">
                                                                     <select name="nilai_eskul_siswa" class="form-control">
                                                                         <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM eskul");
+                                                                        $query = mysqli_query($conn, "SELECT * FROM eskul ORDER BY bobot_eskul DESC");
                                                                         if ($query == false) {
                                                                             die("Terdapat Kesalahan : " . mysqli_error($conn));
                                                                         }
@@ -228,7 +228,7 @@ if ($_SESSION['level'] == "") {
                                                                 <div class="col-sm-9">
                                                                     <select name="nilai_kejujuran_siswa" class="form-control">
                                                                         <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM kejujuran");
+                                                                        $query = mysqli_query($conn, "SELECT * FROM kejujuran ORDER BY bobot_kejujuran DESC");
                                                                         if ($query == false) {
                                                                             die("Terdapat Kesalahan : " . mysqli_error($conn));
                                                                         }
@@ -246,7 +246,7 @@ if ($_SESSION['level'] == "") {
                                                                 <div class="col-sm-9">
                                                                     <select name="nilai_kerapihan_siswa" class="form-control">
                                                                         <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM kerapihan");
+                                                                        $query = mysqli_query($conn, "SELECT * FROM kerapihan ORDER BY bobot_kerapihan DESC");
                                                                         if ($query == false) {
                                                                             die("Terdapat Kesalahan : " . mysqli_error($conn));
                                                                         }

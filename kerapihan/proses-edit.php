@@ -5,14 +5,13 @@ if (isset($_POST['edit'])) {
   include("../koneksi.php");
 
   // membuat variabel untuk menampung data dari form edit
-    $id_kerapihan = $_POST["id_kerapihan"];
-    $range_penilaian_kerapihan = $_POST["range_penilaian_kerapihan"];
     $bobot_kerapihan = $_POST["bobot_kerapihan"];
+    $range_penilaian_kerapihan = $_POST["range_penilaian_kerapihan"];
 
   //buat dan jalankan query UPDATE
   $query  = "UPDATE kerapihan SET ";
-  $query .= "range_penilaian_kerapihan = '$range_penilaian_kerapihan', bobot_kerapihan = '$bobot_kerapihan'";
-  $query .= "WHERE id_kerapihan = '$id_kerapihan'";
+  $query .= "range_penilaian_kerapihan = '$range_penilaian_kerapihan'";
+  $query .= "WHERE bobot_kerapihan = '$bobot_kerapihan'";
 
   $row = mysqli_query($conn, $query);
 

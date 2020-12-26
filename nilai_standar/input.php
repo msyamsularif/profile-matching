@@ -1,36 +1,10 @@
 <?php
 session_start();
-
+include("../koneksi.php");
 // cek apakah yang mengakses halaman ini sudah login
 if ($_SESSION['level'] == "") {
     header("location:../index.php?pesan=belum_login");
 }
-// memanggil file koneksi.php untuk membuat koneksi
-include '../koneksi.php';
-
-// mengecek apakah di url ada nilai GET id
-if (isset($_GET['bobot_keterampilan'])) {
-    // ambil nilai id dari url dan disimpan dalam variabel $id
-    $bobot_keterampilan = ($_GET["bobot_keterampilan"]);
-
-    // menampilkan data mahasiswa dari database yang mempunyai id=$id
-    $query = "SELECT * FROM keterampilan WHERE bobot_keterampilan='$bobot_keterampilan'";
-    $row = mysqli_query($conn, $query);
-    // mengecek apakah query gagal
-    if (!$row) {
-        die("Query Error: " . mysqli_errno($conn) .
-            " - " . mysqli_error($conn));
-    }
-    // mengambil data dari database dan membuat variabel" utk menampung data
-    // variabel ini nantinya akan ditampilkan pada form
-    $row = mysqli_fetch_assoc($row);
-    $bobot_keterampilan = $row["bobot_keterampilan"];
-    $range_penilaian_keterampilan = $row["range_penilaian_keterampilan"];
-} else {
-    // apabila tidak ada data GET id pada akan di redirect ke index.php
-    header("location:index.php");
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,45 +80,84 @@ if (isset($_GET['bobot_keterampilan'])) {
                                     <div class="col-12 grid-margin">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="card-title">Edit Data Keterampilan</h4>
+                                                <h4 class="card-title">Input Data Nilai Standar</h4>
                                                 <br />
-                                                <form class="form-sample" action="proses-edit.php" method="post">
-                                                    <input name="bobot_keterampilan" type="hidden" value="<?php echo $bobot_keterampilan; ?>" />
+                                                <form class="form-sample" action="input_proses.php" method="post">
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">RANGE PENILAIAN</label>
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR PSIKOMOTOR</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" name="range_penilaian_keterampilan" class="form-control" value="<?php echo $range_penilaian_keterampilan; ?>" />
+                                                                    <input type="text" name="nilai_standar_psikomotor" class="form-control" />
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">BOBOT</label>
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR KOGNITIF</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" name="bobot_keterampilan" class="form-control" value="<?php echo $bobot_keterampilan; ?>" />
+                                                                    <input type="text" name="nilai_standar_kognitif" class="form-control" />
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR AFEKTIF</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_standar_afektif" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR KETERAMPILAN</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_standar_keterampilan" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR ESKUL</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_standar_eskul" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR KEJUJURAN</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_standar_kejujuran" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR KERAPIHAN</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_standar_kerapihan" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                        
 
-
-                                                        <div class="form-group row">
+                                                        <div class="row">
                                                             <div class="row">
                                                                 <div class="col-sm-6">
-                                                                    <input type="submit" class="btn btn-success btn-rounded btn-fw" name="edit" value="Update">
+                                                                    <input type="submit" class="btn btn-success btn-rounded btn-fw" name="input" value="Input">
                                                                 </div>
                                                                 <div class="col-sm-6">
                                                                     <a href="index.php" class="btn btn-danger btn-rounded btn-fw">
-                                                                        <span>
-                                                                            Batal
-                                                                        </span>
+                                                                        <span>Batal</span>
                                                                     </a>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                 </form>
                                             </div>
+                                            <!--- end form input --->
                                         </div>
                                     </div>
                                 </div>

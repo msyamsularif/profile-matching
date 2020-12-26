@@ -9,12 +9,12 @@ if ($_SESSION['level'] == "") {
 include '../koneksi.php';
 
 // mengecek apakah di url ada nilai GET id
-if (isset($_GET['id_eskul'])) {
+if (isset($_GET['bobot_eskul'])) {
     // ambil nilai id dari url dan disimpan dalam variabel $id
-    $id_eskul = ($_GET["id_eskul"]);
+    $bobot_eskul = ($_GET["bobot_eskul"]);
 
     // menampilkan data mahasiswa dari database yang mempunyai id=$id
-    $query = "SELECT * FROM eskul WHERE id_eskul='$id_eskul'";
+    $query = "SELECT * FROM eskul WHERE bobot_eskul='$bobot_eskul'";
     $row = mysqli_query($conn, $query);
     // mengecek apakah query gagal
     if (!$row) {
@@ -24,9 +24,8 @@ if (isset($_GET['id_eskul'])) {
     // mengambil data dari database dan membuat variabel" utk menampung data
     // variabel ini nantinya akan ditampilkan pada form
     $row = mysqli_fetch_assoc($row);
-    $id_eskul = $row["id_eskul"];
-    $range_penilaian_eskul = $row["range_penilaian_eskul"];
     $bobot_eskul = $row["bobot_eskul"];
+    $range_penilaian_eskul = $row["range_penilaian_eskul"];
 } else {
     // apabila tidak ada data GET id pada akan di redirect ke index.php
     header("location:index.php");
@@ -110,7 +109,6 @@ if (isset($_GET['id_eskul'])) {
                                                 <h4 class="card-title">Edit Data Eskul</h4>
                                                 <br />
                                                 <form class="form-sample" action="proses-edit.php" method="post">
-                                                    <input name="id_eskul" type="hidden" value="<?php echo $id_eskul; ?>" />
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group row">

@@ -110,14 +110,6 @@ if (isset($_GET['bobot_psikomotor'])) {
                                                 <br />
                                                 <form class="form-sample" action="proses-edit.php" method="post">
                                                     <div class="row">
-                                                    <div class="col-md-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">BOBOT</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="text" name="bobot_psikomotor" class="form-control" value="<?php echo $bobot_psikomotor; ?>" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">RANGE PENILAIAN</label>
@@ -126,7 +118,15 @@ if (isset($_GET['bobot_psikomotor'])) {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                       
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">BOBOT</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="bobot_psikomotor" class="form-control" value="<?php echo $bobot_psikomotor; ?>" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
                                                         <div class="form-group row">
                                                             <div class="row">
                                                                 <div class="col-sm-6">

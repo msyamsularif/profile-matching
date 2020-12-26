@@ -118,13 +118,13 @@ if (isset($_GET['nis'])) {
                                             <div class="card-body">
                                                 <h4 class="card-title">Edit Data Siswa</h4>
                                                 <br />
-                                                <form class="form-sample" action="input_proses.php" method="post">
+                                                <form class="form-sample" action="proses-edit.php" method="post">
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">NIS</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" name="nis" class="form-control" value="<?php echo $nis; ?>" />
+                                                                    <input type="text" name="nis" class="form-control" value="<?php echo $nis; ?>" disabled/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -202,12 +202,22 @@ if (isset($_GET['nis'])) {
                                                                 <div class="col-sm-9">
                                                                     <select name="nilai_kognitif_siswa" class="form-control">
                                                                         <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM kognitif");
+                                                                        $query = mysqli_query($conn, "SELECT * FROM data_siswa INNER JOIN kognitif ON nilai_kognitif_siswa=bobot_kognitif WHERE nis='$nis'");
                                                                         if ($query == false) {
                                                                             die("Terdapat Kesalahan : " . mysqli_error($conn));
                                                                         }
-                                                                        while ($row = mysqli_fetch_array($query)) {
-                                                                            echo "<option value='$row[bobot_kognitif]'>$row[range_penilaian_kognitif]</option>";
+                                                                        while ($rows = mysqli_fetch_array($query)) {
+                                                                            echo "<option value='$rows[nilai_kognitif_siswa]' selected>$rows[range_penilaian_kognitif]</option>";
+                                                                        }
+
+                                                                        $query = mysqli_query($conn, "SELECT * FROM kognitif ORDER BY bobot_kognitif DESC");
+                                                                        if ($query == false) {
+                                                                            die("Terdapat Kesalahan : " . mysqli_error($conn));
+                                                                        }
+                                                                        while ($row1 = mysqli_fetch_array($query)) {
+                                                                            if ($row1["bobot_kognitif"] != $row["nilai_kognitif_siswa"]) {
+                                                                                echo "<option value='$row1[bobot_kognitif]'>$row1[range_penilaian_kognitif]</option>";
+                                                                            }
                                                                         }
                                                                         ?>
                                                                     </select>
@@ -220,12 +230,22 @@ if (isset($_GET['nis'])) {
                                                                 <div class="col-sm-9">
                                                                     <select name="nilai_afektif_siswa" class="form-control">
                                                                         <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM afektif");
+                                                                        $query = mysqli_query($conn, "SELECT * FROM data_siswa INNER JOIN afektif ON nilai_afektif_siswa=bobot_afektif WHERE nis='$nis'");
                                                                         if ($query == false) {
                                                                             die("Terdapat Kesalahan : " . mysqli_error($conn));
                                                                         }
-                                                                        while ($row = mysqli_fetch_array($query)) {
-                                                                            echo "<option value='$row[bobot_afektif]'>$row[range_penilaian_afektif]</option>";
+                                                                        while ($rows = mysqli_fetch_array($query)) {
+                                                                            echo "<option value='$rows[nilai_afektif_siswa]' selected>$rows[range_penilaian_afektif]</option>";
+                                                                        }
+
+                                                                        $query = mysqli_query($conn, "SELECT * FROM afektif ORDER BY bobot_afektif DESC");
+                                                                        if ($query == false) {
+                                                                            die("Terdapat Kesalahan : " . mysqli_error($conn));
+                                                                        }
+                                                                        while ($row1 = mysqli_fetch_array($query)) {
+                                                                            if ($row1["bobot_afektif"] != $row["nilai_afektif_siswa"]) {
+                                                                                echo "<option value='$row1[bobot_afektif]'>$row1[range_penilaian_afektif]</option>";
+                                                                            }
                                                                         }
                                                                         ?>
                                                                     </select>
@@ -238,12 +258,22 @@ if (isset($_GET['nis'])) {
                                                                 <div class="col-sm-9">
                                                                     <select name="nilai_keterampilan_siswa" class="form-control">
                                                                         <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM keterampilan");
+                                                                        $query = mysqli_query($conn, "SELECT * FROM data_siswa INNER JOIN keterampilan ON nilai_keterampilan_siswa=bobot_keterampilan WHERE nis='$nis'");
                                                                         if ($query == false) {
                                                                             die("Terdapat Kesalahan : " . mysqli_error($conn));
                                                                         }
-                                                                        while ($row = mysqli_fetch_array($query)) {
-                                                                            echo "<option value='$row[bobot_keterampilan]'>$row[range_penilaian_keterampilan]</option>";
+                                                                        while ($rows = mysqli_fetch_array($query)) {
+                                                                            echo "<option value='$rows[nilai_keterampilan_siswa]' selected>$rows[range_penilaian_keterampilan]</option>";
+                                                                        }
+
+                                                                        $query = mysqli_query($conn, "SELECT * FROM keterampilan ORDER BY bobot_keterampilan DESC");
+                                                                        if ($query == false) {
+                                                                            die("Terdapat Kesalahan : " . mysqli_error($conn));
+                                                                        }
+                                                                        while ($row1 = mysqli_fetch_array($query)) {
+                                                                            if ($row1["bobot_keterampilan"] != $row["nilai_keterampilan_siswa"]) {
+                                                                                echo "<option value='$row1[bobot_keterampilan]'>$row1[range_penilaian_keterampilan]</option>";
+                                                                            }
                                                                         }
                                                                         ?>
                                                                     </select>
@@ -256,12 +286,22 @@ if (isset($_GET['nis'])) {
                                                                 <div class="col-sm-9">
                                                                     <select name="nilai_eskul_siswa" class="form-control">
                                                                         <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM eskul");
+                                                                        $query = mysqli_query($conn, "SELECT * FROM data_siswa INNER JOIN eskul ON nilai_eskul_siswa=bobot_eskul WHERE nis='$nis'");
                                                                         if ($query == false) {
                                                                             die("Terdapat Kesalahan : " . mysqli_error($conn));
                                                                         }
-                                                                        while ($row = mysqli_fetch_array($query)) {
-                                                                            echo "<option value='$row[bobot_eskul]'>$row[range_penilaian_eskul]</option>";
+                                                                        while ($rows = mysqli_fetch_array($query)) {
+                                                                            echo "<option value='$rows[nilai_eskul_siswa]' selected>$rows[range_penilaian_eskul]</option>";
+                                                                        }
+
+                                                                        $query = mysqli_query($conn, "SELECT * FROM eskul ORDER BY bobot_eskul DESC");
+                                                                        if ($query == false) {
+                                                                            die("Terdapat Kesalahan : " . mysqli_error($conn));
+                                                                        }
+                                                                        while ($row1 = mysqli_fetch_array($query)) {
+                                                                            if ($row1["bobot_eskul"] != $row["nilai_eskul_siswa"]) {
+                                                                                echo "<option value='$row1[bobot_eskul]'>$row1[range_penilaian_eskul]</option>";
+                                                                            }
                                                                         }
                                                                         ?>
                                                                     </select>
@@ -274,12 +314,22 @@ if (isset($_GET['nis'])) {
                                                                 <div class="col-sm-9">
                                                                     <select name="nilai_kejujuran_siswa" class="form-control">
                                                                         <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM kejujuran");
+                                                                        $query = mysqli_query($conn, "SELECT * FROM data_siswa INNER JOIN kejujuran ON nilai_kejujuran_siswa=bobot_kejujuran WHERE nis='$nis'");
                                                                         if ($query == false) {
                                                                             die("Terdapat Kesalahan : " . mysqli_error($conn));
                                                                         }
-                                                                        while ($row = mysqli_fetch_array($query)) {
-                                                                            echo "<option value='$row[bobot_kejujuran]'>$row[range_penilaian_kejujuran]</option>";
+                                                                        while ($rows = mysqli_fetch_array($query)) {
+                                                                            echo "<option value='$rows[nilai_kejujuran_siswa]' selected>$rows[range_penilaian_kejujuran]</option>";
+                                                                        }
+
+                                                                        $query = mysqli_query($conn, "SELECT * FROM kejujuran ORDER BY bobot_kejujuran DESC");
+                                                                        if ($query == false) {
+                                                                            die("Terdapat Kesalahan : " . mysqli_error($conn));
+                                                                        }
+                                                                        while ($row1 = mysqli_fetch_array($query)) {
+                                                                            if ($row1["bobot_kejujuran"] != $row["nilai_kejujuran_siswa"]) {
+                                                                                echo "<option value='$row1[bobot_kejujuran]'>$row1[range_penilaian_kejujuran]</option>";
+                                                                            }
                                                                         }
                                                                         ?>
                                                                     </select>
@@ -292,12 +342,22 @@ if (isset($_GET['nis'])) {
                                                                 <div class="col-sm-9">
                                                                     <select name="nilai_kerapihan_siswa" class="form-control">
                                                                         <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM kerapihan");
+                                                                        $query = mysqli_query($conn, "SELECT * FROM data_siswa INNER JOIN kerapihan ON nilai_kerapihan_siswa=bobot_kerapihan WHERE nis='$nis'");
                                                                         if ($query == false) {
                                                                             die("Terdapat Kesalahan : " . mysqli_error($conn));
                                                                         }
-                                                                        while ($row = mysqli_fetch_array($query)) {
-                                                                            echo "<option value='$row[bobot_kerapihan]'>$row[range_penilaian_kerapihan]</option>";
+                                                                        while ($rows = mysqli_fetch_array($query)) {
+                                                                            echo "<option value='$rows[nilai_kerapihan_siswa]' selected>$rows[range_penilaian_kerapihan]</option>";
+                                                                        }
+
+                                                                        $query = mysqli_query($conn, "SELECT * FROM kerapihan ORDER BY bobot_kerapihan DESC");
+                                                                        if ($query == false) {
+                                                                            die("Terdapat Kesalahan : " . mysqli_error($conn));
+                                                                        }
+                                                                        while ($row1 = mysqli_fetch_array($query)) {
+                                                                            if ($row1["bobot_kerapihan"] != $row["nilai_kerapihan_siswa"]) {
+                                                                                echo "<option value='$row1[bobot_kerapihan]'>$row1[range_penilaian_kerapihan]</option>";
+                                                                            }
                                                                         }
                                                                         ?>
                                                                     </select>
@@ -306,11 +366,10 @@ if (isset($_GET['nis'])) {
                                                         </div>
                                                     </div>
 
-
                                                     <div class="row">
                                                         <div class="row">
                                                             <div class="col-sm-6">
-                                                                <input type="submit" class="btn btn-success btn-rounded btn-fw" name="input" value="Input">
+                                                                <input type="submit" class="btn btn-success btn-rounded btn-fw" name="edit" value="Update">
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <a href="index.php" class="btn btn-danger btn-rounded btn-fw">

@@ -9,12 +9,12 @@ if ($_SESSION['level'] == "") {
 include '../koneksi.php';
 
 // mengecek apakah di url ada nilai GET id
-if (isset($_GET['id_kognitif'])) {
+if (isset($_GET['bobot_kognitif'])) {
     // ambil nilai id dari url dan disimpan dalam variabel $id
-    $id_kognitif = ($_GET["id_kognitif"]);
+    $bobot_kognitif = ($_GET["bobot_kognitif"]);
 
     // menampilkan data mahasiswa dari database yang mempunyai id=$id
-    $query = "SELECT * FROM kognitif WHERE id_kognitif='$id_kognitif'";
+    $query = "SELECT * FROM kognitif WHERE bobot_kognitif='$bobot_kognitif'";
     $row = mysqli_query($conn, $query);
     // mengecek apakah query gagal
     if (!$row) {
@@ -24,9 +24,8 @@ if (isset($_GET['id_kognitif'])) {
     // mengambil data dari database dan membuat variabel" utk menampung data
     // variabel ini nantinya akan ditampilkan pada form
     $row = mysqli_fetch_assoc($row);
-    $id_kognitif = $row["id_kognitif"];
-    $range_penilaian_kognitif = $row["range_penilaian_kognitif"];
     $bobot_kognitif = $row["bobot_kognitif"];
+    $range_penilaian_kognitif = $row["range_penilaian_kognitif"];
 } else {
     // apabila tidak ada data GET id pada akan di redirect ke index.php
     header("location:index.php");
@@ -110,7 +109,6 @@ if (isset($_GET['id_kognitif'])) {
                                                 <h4 class="card-title">Edit Data Kognitif</h4>
                                                 <br />
                                                 <form class="form-sample" action="proses-edit.php" method="post">
-                                                    <input name="id_kognitif" type="hidden" value="<?php echo $id_kognitif; ?>" />
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group row">

@@ -110,7 +110,7 @@ label {
                         echo "<td>".$no."</td>";
                         echo "<td>".$row['range_penilaian_eskul']."</td>";
                         echo "<td>".$row['bobot_eskul']."</td>";
-                        echo "<td align='center'><a href='form-edit.php?id_eskul=$row[id_eskul]'>Edit</a> | <a href='delete.php?id_eskul=$row[id_eskul]'>Delete</a></td></tr>";     
+                        echo "<td align='center'><a href='form-edit.php?bobot_eskul=$row[bobot_eskul]'>Edit</a> | <a href='delete.php?bobot_eskul=$row[bobot_eskul]'>Delete</a></td></tr>";     
                       $no++;
                       }
                       echo '

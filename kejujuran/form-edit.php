@@ -9,12 +9,12 @@ if ($_SESSION['level'] == "") {
 include '../koneksi.php';
 
 // mengecek apakah di url ada nilai GET id
-if (isset($_GET['id_kejujuran'])) {
+if (isset($_GET['bobot_kejujuran'])) {
     // ambil nilai id dari url dan disimpan dalam variabel $id
-    $id_kejujuran = ($_GET["id_kejujuran"]);
+    $bobot_kejujuran = ($_GET["bobot_kejujuran"]);
 
     // menampilkan data mahasiswa dari database yang mempunyai id=$id
-    $query = "SELECT * FROM kejujuran WHERE id_kejujuran='$id_kejujuran'";
+    $query = "SELECT * FROM kejujuran WHERE bobot_kejujuran='$bobot_kejujuran'";
     $row = mysqli_query($conn, $query);
     // mengecek apakah query gagal
     if (!$row) {
@@ -24,9 +24,8 @@ if (isset($_GET['id_kejujuran'])) {
     // mengambil data dari database dan membuat variabel" utk menampung data
     // variabel ini nantinya akan ditampilkan pada form
     $row = mysqli_fetch_assoc($row);
-    $id_kejujuran = $row["id_kejujuran"];
-    $range_penilaian_kejujuran = $row["range_penilaian_kejujuran"];
     $bobot_kejujuran = $row["bobot_kejujuran"];
+    $range_penilaian_kejujuran = $row["range_penilaian_kejujuran"];
 } else {
     // apabila tidak ada data GET id pada akan di redirect ke index.php
     header("location:index.php");
@@ -110,7 +109,6 @@ if (isset($_GET['id_kejujuran'])) {
                                                 <h4 class="card-title">Edit Data Kejujuran</h4>
                                                 <br />
                                                 <form class="form-sample" action="proses-edit.php" method="post">
-                                                    <input name="id_kejujuran" type="hidden" value="<?php echo $id_kejujuran; ?>" />
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group row">
