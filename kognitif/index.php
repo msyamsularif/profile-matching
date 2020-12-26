@@ -74,7 +74,7 @@ label {
         <div class="col-lg-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Table Psikomotor</h4>
+              <h4 class="card-title">Table Kognitif</h4>
               <h5 class="card-description">
                 <a href="input.php">Tambah data</a>
               </h5>
@@ -96,7 +96,7 @@ label {
 
           echo '<table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
             <thead>
-			<tr>
+			      <tr>
                 <th>NO</th>
                 <th>Range Penilaian</th>
                 <th>Bobot</th>
@@ -110,7 +110,7 @@ label {
                         echo "<td>".$no."</td>";
                         echo "<td>".$row['range_penilaian_kognitif']."</td>";
                         echo "<td>".$row['bobot_kognitif']."</td>";
-                        echo "<td align='center'><a href='form-edit.php?id_user=$row[id_kognitif]'>Edit</a> | <a href='delete.php?id_user=$row[id_kognitif]'>Delete</a></td></tr>";     
+                        echo "<td align='center'><a href='form-edit.php?id_kognitif=$row[id_kognitif]'>Edit</a> | <a href='delete.php?id_kognitif=$row[id_kognitif]'>Delete</a></td></tr>";     
                       $no++;
                       }
                       echo '

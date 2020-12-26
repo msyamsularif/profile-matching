@@ -2,39 +2,36 @@
 include("../koneksi.php");
 ?>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item nav-profile">
-            <div class="nav-link">
-              <div class="user-wrapper">
-                <div class="profile-image">
-                  <img src="../public/images/faces/face1.jpg" alt="profile image">
-                </div>
-                <div class="text-wrapper">
-                  <p class="profile-name"><?php echo $_SESSION['nama_user'];?></p>
-                  <div>
-                  <?php
-                  $leveluser = $_SESSION["level"];
-                  $level = array(
-						'1' => 'Admin',
-                                    '2' => 'Prodi',
-                                    '3' => 'Dosen',
-                                    '4' => 'Mahasiswa',
-                                    );
-                  ?>
-                    <small class="designation text-muted"><?php echo $level[$leveluser];?></small>
-                    <span class="status-indicator online"></span>
-                  </div>
-
-                </div>
-              </div>
-              <!--<button class="btn btn-success btn-block">New Project
-                <i class="mdi mdi-plus"></i>
-              </button>-->
+  <ul class="nav">
+    <li class="nav-item nav-profile">
+      <div class="nav-link">
+        <div class="user-wrapper">
+          <div class="profile-image">
+            <img src="../public/images/faces/face1.jpg" alt="profile image">
+          </div>
+          <div class="text-wrapper">
+            <p class="profile-name"><?php echo $_SESSION['nama_user']; ?></p>
+            <div>
+              <?php
+              $leveluser = $_SESSION["level"];
+              $level = array(
+                '1' => 'Admin',
+                '2' => 'Prodi',
+                '3' => 'Dosen',
+                '4' => 'Mahasiswa',
+              );
+              ?>
+              <small class="designation text-muted"><?php echo $level[$leveluser]; ?></small>
+              <span class="status-indicator online"></span>
             </div>
-          </li>
-          <?php
-            if($_SESSION['level'] == "1"){
-            echo '       
+
+          </div>
+        </div>
+      </div>
+    </li>
+    <?php
+    if ($_SESSION['level'] == "1") {
+      echo '       
             <li class="nav-item" >
               <a class="nav-link" href="../dashboard/index.php">
                 <i class="menu-icon mdi mdi-television"></i>
@@ -91,10 +88,9 @@ include("../koneksi.php");
                 </ul>
               </div>
             </li>';
-          }
-          else{
-            header("location:../error-404.php");
-          }
-          ?>
-        </ul>
-      </nav>
+    } else {
+      header("location:../error-404.php");
+    }
+    ?>
+  </ul>
+</nav>

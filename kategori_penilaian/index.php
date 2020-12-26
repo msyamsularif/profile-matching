@@ -83,7 +83,7 @@ label {
 
           <?php
 					if($_SESSION['level'] == "1"){
-          $sql = 'SELECT * FROM kategori_penilaian';
+          $sql = 'SELECT * FROM kategori_penilaian INNER JOIN jenis_kriteria ON id_kriteria_kategori=id_kriteria';
 					}
 					else{
 						header('location:../error-404.php');
@@ -109,7 +109,7 @@ label {
                         echo "<tr>";
                         echo "<td>".$no."</td>";
                         echo "<td>".$row['nama_kategori']."</td>";
-                        echo "<td>".$row['id_kriteria_kategori']."</td>";
+                        echo "<td>".$row['nama_kriteria']."</td>";
                         echo "<td align='center'><a href='form-edit.php?id_kategori=$row[id_kategori]'>Edit</a> | <a href='delete.php?id_kategori=$row[id_kategori]'>Delete</a></td></tr>";     
                       $no++;
                       }
