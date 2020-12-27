@@ -124,7 +124,7 @@ if (isset($_GET['nis'])) {
                                                             <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">NIS</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" name="nis" class="form-control" value="<?php echo $nis; ?>" disabled />
+                                                                    <input type="text" name="nis" class="form-control" value="<?php echo $nis; ?>" readonly />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -164,7 +164,7 @@ if (isset($_GET['nis'])) {
 
                                                     <div class="container-fluid" style="margin-top: 50px;">
                                                         <div class="row">
-                                                            <h6>Input Nilai Siswa</h6>
+                                                            <h6>Edit Nilai Siswa</h6>
                                                         </div>
                                                     </div>
                                                     

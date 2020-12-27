@@ -120,6 +120,7 @@ if ($_SESSION['level'] == "") {
                         </thead>
                         <tbody>';
                         $no = 1;
+
                         while ($row = mysqli_fetch_array($query)) {
                           echo "<tr>";
                           echo "<td>" . $no . "</td>";
