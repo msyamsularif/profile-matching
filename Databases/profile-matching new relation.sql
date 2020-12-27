@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2020 at 06:12 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Waktu pembuatan: 26 Des 2020 pada 11.18
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `afektif`
+-- Struktur dari tabel `afektif`
 --
 
 CREATE TABLE `afektif` (
@@ -33,21 +33,10 @@ CREATE TABLE `afektif` (
   `range_penilaian_afektif` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `afektif`
---
-
-INSERT INTO `afektif` (`bobot_afektif`, `range_penilaian_afektif`) VALUES
-(1, 'Dibawah 40'),
-(2, 'Antara 40 - 50'),
-(3, 'Antara 50 - 60 '),
-(4, 'Antara 60 - 80'),
-(5, 'Antara 80 - 100');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_siswa`
+-- Struktur dari tabel `data_siswa`
 --
 
 CREATE TABLE `data_siswa` (
@@ -66,16 +55,17 @@ CREATE TABLE `data_siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_siswa`
+-- Dumping data untuk tabel `data_siswa`
 --
 
 INSERT INTO `data_siswa` (`nis`, `nama_siswa`, `kelas`, `tahun_angkatan`, `alamat`, `nilai_psikomotor_siswa`, `nilai_kognitif_siswa`, `nilai_afektif_siswa`, `nilai_keterampilan_siswa`, `nilai_eskul_siswa`, `nilai_kejujuran_siswa`, `nilai_kerapihan_siswa`) VALUES
-(4567, 'Loream Ipsum ipsum', '2', 2018, 'Jakarta', 4, 4, 4, 4, 4, 4, 4);
+(4567, 'Loream Ipsum', '2', 2015, 'Jakarta', 3, 5, 5, 5, 5, 5, 5),
+(12345, 'Loream', '5', 2017, 'Bekasi', 5, 1, 4, 2, 3, 3, 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `eskul`
+-- Struktur dari tabel `eskul`
 --
 
 CREATE TABLE `eskul` (
@@ -83,21 +73,10 @@ CREATE TABLE `eskul` (
   `range_penilaian_eskul` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `eskul`
---
-
-INSERT INTO `eskul` (`bobot_eskul`, `range_penilaian_eskul`) VALUES
-(1, 'E'),
-(2, 'D'),
-(3, 'C'),
-(4, 'B'),
-(5, 'A');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis_kriteria`
+-- Struktur dari tabel `jenis_kriteria`
 --
 
 CREATE TABLE `jenis_kriteria` (
@@ -107,7 +86,7 @@ CREATE TABLE `jenis_kriteria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `jenis_kriteria`
+-- Dumping data untuk tabel `jenis_kriteria`
 --
 
 INSERT INTO `jenis_kriteria` (`id_kriteria`, `nama_kriteria`, `nilai_kriteria`) VALUES
@@ -117,7 +96,7 @@ INSERT INTO `jenis_kriteria` (`id_kriteria`, `nama_kriteria`, `nilai_kriteria`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori_penilaian`
+-- Struktur dari tabel `kategori_penilaian`
 --
 
 CREATE TABLE `kategori_penilaian` (
@@ -127,7 +106,7 @@ CREATE TABLE `kategori_penilaian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kategori_penilaian`
+-- Dumping data untuk tabel `kategori_penilaian`
 --
 
 INSERT INTO `kategori_penilaian` (`id_kategori`, `nama_kategori`, `id_kriteria_kategori`) VALUES
@@ -137,7 +116,7 @@ INSERT INTO `kategori_penilaian` (`id_kategori`, `nama_kategori`, `id_kriteria_k
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kejujuran`
+-- Struktur dari tabel `kejujuran`
 --
 
 CREATE TABLE `kejujuran` (
@@ -145,21 +124,10 @@ CREATE TABLE `kejujuran` (
   `range_penilaian_kejujuran` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `kejujuran`
---
-
-INSERT INTO `kejujuran` (`bobot_kejujuran`, `range_penilaian_kejujuran`) VALUES
-(1, 'SANGAT KURANG'),
-(2, 'KURANG'),
-(3, 'CUKUP'),
-(4, 'BAIK'),
-(5, 'SANGAT BAIK');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kerapihan`
+-- Struktur dari tabel `kerapihan`
 --
 
 CREATE TABLE `kerapihan` (
@@ -167,21 +135,10 @@ CREATE TABLE `kerapihan` (
   `range_penilaian_kerapihan` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `kerapihan`
---
-
-INSERT INTO `kerapihan` (`bobot_kerapihan`, `range_penilaian_kerapihan`) VALUES
-(1, 'SANGAT KURANG'),
-(2, 'KURANG'),
-(3, 'CUKUP'),
-(4, 'BAIK'),
-(5, 'SANGAT BAIK');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `keterampilan`
+-- Struktur dari tabel `keterampilan`
 --
 
 CREATE TABLE `keterampilan` (
@@ -189,21 +146,10 @@ CREATE TABLE `keterampilan` (
   `range_penilaian_keterampilan` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `keterampilan`
---
-
-INSERT INTO `keterampilan` (`bobot_keterampilan`, `range_penilaian_keterampilan`) VALUES
-(1, 'E'),
-(2, 'D'),
-(3, 'C'),
-(4, 'B'),
-(5, 'A');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kognitif`
+-- Struktur dari tabel `kognitif`
 --
 
 CREATE TABLE `kognitif` (
@@ -211,45 +157,10 @@ CREATE TABLE `kognitif` (
   `range_penilaian_kognitif` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `kognitif`
---
-
-INSERT INTO `kognitif` (`bobot_kognitif`, `range_penilaian_kognitif`) VALUES
-(1, 'Dibawah 40'),
-(2, 'Antara 40 - 50'),
-(3, 'Antara 50 - 60 '),
-(4, 'Antara 60 - 80'),
-(5, 'Antara 80 - 100');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nilai_standar`
---
-
-CREATE TABLE `nilai_standar` (
-  `id_nilai_standar` int(12) NOT NULL,
-  `nilai_standar_psikomotor` int(12) NOT NULL,
-  `nilai_standar_kognitif` int(12) NOT NULL,
-  `nilai_standar_afektif` int(12) NOT NULL,
-  `nilai_standar_keterampilan` int(12) NOT NULL,
-  `nilai_standar_eskul` int(12) NOT NULL,
-  `nilai_standar_kejujuran` int(12) NOT NULL,
-  `nilai_standar_kerapihan` int(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `nilai_standar`
---
-
-INSERT INTO `nilai_standar` (`id_nilai_standar`, `nilai_standar_psikomotor`, `nilai_standar_kognitif`, `nilai_standar_afektif`, `nilai_standar_keterampilan`, `nilai_standar_eskul`, `nilai_standar_kejujuran`, `nilai_standar_kerapihan`) VALUES
-(1, 3, 3, 3, 3, 3, 3, 3);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `psikomotor`
+-- Struktur dari tabel `psikomotor`
 --
 
 CREATE TABLE `psikomotor` (
@@ -258,7 +169,7 @@ CREATE TABLE `psikomotor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `psikomotor`
+-- Dumping data untuk tabel `psikomotor`
 --
 
 INSERT INTO `psikomotor` (`bobot_psikomotor`, `range_penilaian_psikomotor`) VALUES
@@ -271,7 +182,7 @@ INSERT INTO `psikomotor` (`bobot_psikomotor`, `range_penilaian_psikomotor`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -285,7 +196,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `nip_user`, `nama_user`, `username`, `password`, `level`, `jabatan_user`) VALUES
@@ -296,149 +207,137 @@ INSERT INTO `user` (`id_user`, `nip_user`, `nama_user`, `username`, `password`, 
 --
 
 --
--- Indexes for table `afektif`
+-- Indeks untuk tabel `afektif`
 --
 ALTER TABLE `afektif`
   ADD PRIMARY KEY (`bobot_afektif`);
 
 --
--- Indexes for table `data_siswa`
+-- Indeks untuk tabel `data_siswa`
 --
 ALTER TABLE `data_siswa`
   ADD PRIMARY KEY (`nis`);
 
 --
--- Indexes for table `eskul`
+-- Indeks untuk tabel `eskul`
 --
 ALTER TABLE `eskul`
   ADD PRIMARY KEY (`bobot_eskul`);
 
 --
--- Indexes for table `jenis_kriteria`
+-- Indeks untuk tabel `jenis_kriteria`
 --
 ALTER TABLE `jenis_kriteria`
   ADD PRIMARY KEY (`id_kriteria`);
 
 --
--- Indexes for table `kategori_penilaian`
+-- Indeks untuk tabel `kategori_penilaian`
 --
 ALTER TABLE `kategori_penilaian`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `kejujuran`
+-- Indeks untuk tabel `kejujuran`
 --
 ALTER TABLE `kejujuran`
   ADD PRIMARY KEY (`bobot_kejujuran`);
 
 --
--- Indexes for table `kerapihan`
+-- Indeks untuk tabel `kerapihan`
 --
 ALTER TABLE `kerapihan`
   ADD PRIMARY KEY (`bobot_kerapihan`);
 
 --
--- Indexes for table `keterampilan`
+-- Indeks untuk tabel `keterampilan`
 --
 ALTER TABLE `keterampilan`
   ADD PRIMARY KEY (`bobot_keterampilan`);
 
 --
--- Indexes for table `kognitif`
+-- Indeks untuk tabel `kognitif`
 --
 ALTER TABLE `kognitif`
   ADD PRIMARY KEY (`bobot_kognitif`);
 
 --
--- Indexes for table `nilai_standar`
---
-ALTER TABLE `nilai_standar`
-  ADD PRIMARY KEY (`id_nilai_standar`);
-
---
--- Indexes for table `psikomotor`
+-- Indeks untuk tabel `psikomotor`
 --
 ALTER TABLE `psikomotor`
   ADD PRIMARY KEY (`bobot_psikomotor`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `afektif`
+-- AUTO_INCREMENT untuk tabel `afektif`
 --
 ALTER TABLE `afektif`
   MODIFY `bobot_afektif` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `data_siswa`
+-- AUTO_INCREMENT untuk tabel `data_siswa`
 --
 ALTER TABLE `data_siswa`
   MODIFY `nis` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12346;
 
 --
--- AUTO_INCREMENT for table `eskul`
+-- AUTO_INCREMENT untuk tabel `eskul`
 --
 ALTER TABLE `eskul`
   MODIFY `bobot_eskul` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `jenis_kriteria`
+-- AUTO_INCREMENT untuk tabel `jenis_kriteria`
 --
 ALTER TABLE `jenis_kriteria`
   MODIFY `id_kriteria` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `kategori_penilaian`
+-- AUTO_INCREMENT untuk tabel `kategori_penilaian`
 --
 ALTER TABLE `kategori_penilaian`
   MODIFY `id_kategori` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `kejujuran`
+-- AUTO_INCREMENT untuk tabel `kejujuran`
 --
 ALTER TABLE `kejujuran`
   MODIFY `bobot_kejujuran` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `kerapihan`
+-- AUTO_INCREMENT untuk tabel `kerapihan`
 --
 ALTER TABLE `kerapihan`
   MODIFY `bobot_kerapihan` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `keterampilan`
+-- AUTO_INCREMENT untuk tabel `keterampilan`
 --
 ALTER TABLE `keterampilan`
-  MODIFY `bobot_keterampilan` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `bobot_keterampilan` int(12) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `kognitif`
+-- AUTO_INCREMENT untuk tabel `kognitif`
 --
 ALTER TABLE `kognitif`
-  MODIFY `bobot_kognitif` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `bobot_kognitif` int(12) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `nilai_standar`
---
-ALTER TABLE `nilai_standar`
-  MODIFY `id_nilai_standar` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `psikomotor`
+-- AUTO_INCREMENT untuk tabel `psikomotor`
 --
 ALTER TABLE `psikomotor`
-  MODIFY `bobot_psikomotor` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `bobot_psikomotor` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
