@@ -6,7 +6,7 @@ if (isset($_POST['edit'])) {
 
   // membuat variabel untuk menampung data dari form edit
   $bobot_psikomotor = $_POST["bobot_psikomotor"];
-    $range_penilaian_psikomotor = $_POST["range_penilaian_psikomotor"];
+  $range_penilaian_psikomotor = $_POST["range_penilaian_psikomotor"];
 
   //buat dan jalankan query UPDATE
   $query  = "UPDATE psikomotor SET ";
@@ -16,13 +16,11 @@ if (isset($_POST['edit'])) {
   $row = mysqli_query($conn, $query);
 
   //periksa hasil query apakah ada error
-  if(!$row) {
-    die ("Query gagal dijalankan: ".mysqli_errno($conn).
-       " - ".mysqli_error($conn));
+  if (!$row) {
+    die("Query gagal dijalankan: " . mysqli_errno($conn) .
+      " - " . mysqli_error($conn));
   }
 }
 
 //lakukan redirect ke halaman index.php
 header("location:index.php");
-
-?>

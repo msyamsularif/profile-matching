@@ -122,7 +122,7 @@ if (isset($_GET['bobot_kognitif'])) {
                                                             <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">BOBOT</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" name="bobot_kognitif" class="form-control" value="<?php echo $bobot_kognitif; ?>" />
+                                                                    <input type="text" name="bobot_kognitif" class="form-control" value="<?php echo $bobot_kognitif; ?>" disabled/>
                                                                 </div>
                                                             </div>
                                                         </div>

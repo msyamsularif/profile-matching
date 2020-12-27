@@ -10,10 +10,10 @@ include '../koneksi.php';
 
 // mengecek apakah di url ada nilai GET id
 if (isset($_GET['nis'])) {
-    // ambil nilai id dari url dan disimpan dalam variabel $id
+    // ambil nilai id dari url dan disimpan dalam variabel $nis
     $nis = ($_GET["nis"]);
 
-    // menampilkan data mahasiswa dari database yang mempunyai id=$id
+    // menampilkan data siswa dari database yang mempunyai nis=$nis
     $query = "SELECT * FROM data_siswa WHERE nis='$nis'";
     $row = mysqli_query($conn, $query);
     // mengecek apakah query gagal
@@ -124,7 +124,7 @@ if (isset($_GET['nis'])) {
                                                             <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">NIS</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" name="nis" class="form-control" value="<?php echo $nis; ?>" disabled/>
+                                                                    <input type="text" name="nis" class="form-control" value="<?php echo $nis; ?>" disabled />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -167,6 +167,7 @@ if (isset($_GET['nis'])) {
                                                             <h6>Input Nilai Siswa</h6>
                                                         </div>
                                                     </div>
+                                                    
                                                     <div class="row" style="margin-top: 20px;">
                                                         <div class="col-md-6">
                                                             <div class="form-group row">
@@ -366,21 +367,22 @@ if (isset($_GET['nis'])) {
                                                         </div>
                                                     </div>
 
-                                                    <div class="row">
+                                                    <div class="form-group row">
                                                         <div class="row">
                                                             <div class="col-sm-6">
                                                                 <input type="submit" class="btn btn-success btn-rounded btn-fw" name="edit" value="Update">
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <a href="index.php" class="btn btn-danger btn-rounded btn-fw">
-                                                                    <span>Batal</span>
+                                                                    <span>
+                                                                        Batal
+                                                                    </span>
                                                                 </a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </form>
                                             </div>
-                                            <!--- end form input --->
                                         </div>
                                     </div>
                                 </div>

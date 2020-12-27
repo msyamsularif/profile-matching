@@ -20,10 +20,9 @@ if (isset($_POST['edit'])) {
 
   //buat dan jalankan query UPDATE
   $query  = "UPDATE data_siswa SET ";
-  $query .= "nama_siswa = '$nama_siswa', kelas = '$kelas', tahun_angkatan = '$tahun_angkatan',";
-  $query .= "alamat = '$alamat', nilai_psikomotor_siswa = '$nilai_psikomotor_siswa', nilai_kognitif_siswa = '$nilai_kognitif_siswa',";
-  $query .= "nilai_afektif_siswa = '$nilai_afektif_siswa', nilai_keterampilan_siswa = '$nilai_keterampilan_siswa', nilai_eskul_siswa = '$nilai_eskul_siswa',";
-  $query .= "nilai_kejujuran_siswa = '$nilai_kejujuran_siswa', nilai_kerapihan_siswa = '$nilai_kerapihan_siswa'";
+  $query .= "nis = '$nis', nama_siswa = '$nama_siswa', kelas = '$kelas', tahun_angkatan = '$tahun_angkatan', ";
+  $query .= "alamat = '$alamat', nilai_psikomotor_siswa = '$nilai_psikomotor_siswa', nilai_kognitif_siswa = '$nilai_kognitif_siswa', ";
+  $query .= "nilai_afektif_siswa = '$nilai_afektif_siswa', nilai_keterampilan_siswa = '$nilai_keterampilan_siswa', nilai_eskul_siswa = '$nilai_eskul_siswa', nilai_kejujuran_siswa = '$nilai_kejujuran_siswa', nilai_kerapihan_siswa = '$nilai_kerapihan_siswa' ";
   $query .= "WHERE nis = '$nis'";
 
   $row = mysqli_query($conn, $query);
