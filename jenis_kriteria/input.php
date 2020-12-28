@@ -88,7 +88,10 @@ if ($_SESSION['level'] == "") {
                                                             <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">NAMA KRITERIA</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" name="nama_kriteria" class="form-control" />
+                                                                    <select name="nama_kriteria" class="form-control">
+                                                                        <option value='Core Factor (CF)'>Core Factor (CF)</option>
+                                                                        <option value='Secondary Factor (SF)'>Secondary Factor (SF)</option>
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                         </div>

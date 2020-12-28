@@ -50,7 +50,7 @@ if ($_SESSION['level'] == "") {
         </style>
         <script>
             $(document).ready(function() {
-                $('#tabeleGAP').DataTable(
+                $('#tabelSatu').DataTable(
 
                     {
 
@@ -64,7 +64,7 @@ if ($_SESSION['level'] == "") {
             });
 
             $(document).ready(function() {
-                $('#tabelKonversi').DataTable(
+                $('#tabelDua').DataTable(
 
                     {
 
@@ -79,6 +79,20 @@ if ($_SESSION['level'] == "") {
 
             $(document).ready(function() {
                 $('#tabelTiga').DataTable(
+
+                    {
+
+                        "aLengthMenu": [
+                            [5, 10, 25, -1],
+                            [5, 10, 25, "All"]
+                        ],
+                        "iDisplayLength": 5
+                    }
+                );
+            });
+
+            $(document).ready(function() {
+                $('#tabelEmpat').DataTable(
 
                     {
 
@@ -125,7 +139,7 @@ if ($_SESSION['level'] == "") {
                                                     die('SQL Error: ' . mysqli_error($conn));
                                                 }
 
-                                                echo '<table id="tabeleGAP" class="table table-striped table-bordered table-responsive" style="width:100%">
+                                                echo '<table id="tabelSatu" class="table table-striped table-bordered table-responsive" style="width:100%">
                                                 <thead>
                                                 <tr>
                                                     <th>NO</th>
@@ -220,6 +234,7 @@ if ($_SESSION['level'] == "") {
                                                     die('SQL Error: ' . mysqli_error($conn));
                                                 }
 
+                                                //Konversi Nilai Bobot
                                                 function nilaiStandar($nilai_kategori)
                                                 {
                                                     if ($nilai_kategori == 0) {
@@ -243,7 +258,7 @@ if ($_SESSION['level'] == "") {
                                                     }
                                                 }
 
-                                                echo '<table id="tabelKonversi" class="table table-striped table-bordered table-responsive" style="width:100%">
+                                                echo '<table id="tabelDua" class="table table-striped table-bordered table-responsive" style="width:100%">
                                                 <thead>
                                                 <tr>
                                                     <th>NO</th>
@@ -265,6 +280,7 @@ if ($_SESSION['level'] == "") {
                                                 $no = 1;
 
                                                 while ($row = mysqli_fetch_array($query)) {
+                                                    // Nilai GAP
                                                     $resultPsikomotor = $row['nilai_psikomotor_siswa'] - $row['nilai_standar_psikomotor'];
                                                     $resultKognitif = $row['nilai_kognitif_siswa'] - $row['nilai_standar_kognitif'];
                                                     $resultAfektif = $row['nilai_afektif_siswa'] - $row['nilai_standar_afektif'];
@@ -364,9 +380,28 @@ if ($_SESSION['level'] == "") {
                                                 </tr>
                                                 </thead>
                                                 <tbody>';
+                                                // Mencari nilai perkategori
+                                                $nilaiCF = 0;
+                                                $nilaiSF = 0;
                                                 $no = 1;
 
+                                                $queryB = mysqli_query($conn, "SELECT * FROM jenis_kriteria");
+                                                if ($queryB == false) {
+                                                    die("Terdapat Kesalahan : " . mysqli_error($conn));
+                                                }
+
+                                                while ($row1 = mysqli_fetch_array($queryB)) {
+                                                    if ($row1['nama_kriteria'] == "Core Factor (CF)") {
+                                                        $nilaiCF = $row1['nilai_kriteria'];
+                                                    } else {
+                                                        $nilaiSF = $row1['nilai_kriteria'];
+                                                    }
+                                                }
+
+                                                // menampilkan data yang sudah di hitung
                                                 while ($row = mysqli_fetch_array($query)) {
+
+                                                    // Data GAP
                                                     $resultPsikomotor = $row['nilai_psikomotor_siswa'] - $row['nilai_standar_psikomotor'];
                                                     $resultKognitif = $row['nilai_kognitif_siswa'] - $row['nilai_standar_kognitif'];
                                                     $resultAfektif = $row['nilai_afektif_siswa'] - $row['nilai_standar_afektif'];
@@ -375,7 +410,7 @@ if ($_SESSION['level'] == "") {
                                                     $resultKejujuran = $row['nilai_kejujuran_siswa'] - $row['nilai_standar_kejujuran'];
                                                     $resultKerapihan = $row['nilai_kerapihan_siswa'] - $row['nilai_standar_kerapihan'];
 
-                                                    // Hasil
+                                                    // Data Perhitungan CF , SF dan Hasil
 
                                                     $hasilAkademikCF = (nilaiStandar($resultPsikomotor) + nilaiStandar($resultKognitif)) / 2;
                                                     $hasilAkademikSF = nilaiStandar($resultAfektif) / 1;
@@ -384,10 +419,9 @@ if ($_SESSION['level'] == "") {
                                                     $hasilKarakterCF = nilaiStandar($resultKejujuran) / 1;
                                                     $hasilKarakterSF = nilaiStandar($resultKerapihan) / 1;
 
-                                                    $Na = (0.6 * $hasilKarakterCF) + (0.4 * $hasilAkademikSF);
-                                                    $NnA = (0.6 * $hasilNonAkademikCF) + (0.4 * $hasilNonAkademikSF);
-                                                    $NK = (0.6 * $hasilKarakterCF) + (0.4 * $hasilKarakterSF);
-
+                                                    $Na = (($nilaiCF / 100) * $hasilAkademikCF) + (($nilaiSF / 100) * $hasilAkademikSF);
+                                                    $NnA = (($nilaiCF / 100) * $hasilNonAkademikCF) + (($nilaiSF / 100) * $hasilNonAkademikSF);
+                                                    $NK = (($nilaiCF / 100) * $hasilKarakterCF) + (($nilaiSF / 100) * $hasilKarakterSF);
 
                                                     echo "<tr>";
                                                     echo "<td>" . $no . "</td>";
@@ -431,6 +465,125 @@ if ($_SESSION['level'] == "") {
                                             </tfoot>
                                             </table>';
 
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!---- Data Tabel Konversi---->
+
+                            <div class="col-lg-12 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-description">Tabel Rekomendasi (Hasil Akhir)</h4>
+                                        <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+                                            <div class="row">
+
+                                                <?php
+                                                if ($_SESSION['level'] == "1") {
+                                                    $sql = 'SELECT * FROM data_siswa, nilai_standar';
+                                                } else {
+                                                    header('location:../error-404.php');
+                                                }
+                                                $query = mysqli_query($conn, $sql);
+
+                                                if (!$query) {
+                                                    die('SQL Error: ' . mysqli_error($conn));
+                                                }
+
+                                                echo '<table id="tabelEmpat" class="table table-striped table-bordered table-responsive" style="width:100%">
+                                                <thead>
+                                                <tr>
+                                                    <th>NO</th>
+                                                    <th>NIS</th>
+                                                    <th>Nama Siswa</th>
+                                                    <th>Kelas</th>
+                                                    <th>Tahun Angkatan</th>
+                                                    <th>Alamat</th>
+                                                    <th>NA</th>
+                                                    <th>NnA</th>
+                                                    <th>NK</th>
+                                                    <th><b>Hasil</b></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>';
+                                                // Mencari nilai perkategori
+                                                $nilaiCF = 0;
+                                                $nilaiSF = 0;
+                                                $no = 1;
+
+                                                $queryB = mysqli_query($conn, "SELECT * FROM jenis_kriteria");
+                                                if ($queryB == false) {
+                                                    die("Terdapat Kesalahan : " . mysqli_error($conn));
+                                                }
+
+                                                while ($row1 = mysqli_fetch_array($queryB)) {
+                                                    if ($row1['nama_kriteria'] == "Core Factor (CF)") {
+                                                        $nilaiCF = $row1['nilai_kriteria'];
+                                                    } else {
+                                                        $nilaiSF = $row1['nilai_kriteria'];
+                                                    }
+                                                }
+
+                                                // menampilkan data yang sudah di hitung
+                                                while ($row = mysqli_fetch_array($query)) {
+
+                                                    // Data GAP
+                                                    $resultPsikomotor = $row['nilai_psikomotor_siswa'] - $row['nilai_standar_psikomotor'];
+                                                    $resultKognitif = $row['nilai_kognitif_siswa'] - $row['nilai_standar_kognitif'];
+                                                    $resultAfektif = $row['nilai_afektif_siswa'] - $row['nilai_standar_afektif'];
+                                                    $resultKeterampilan = $row['nilai_keterampilan_siswa'] - $row['nilai_standar_keterampilan'];
+                                                    $resultEskul = $row['nilai_eskul_siswa'] - $row['nilai_standar_eskul'];
+                                                    $resultKejujuran = $row['nilai_kejujuran_siswa'] - $row['nilai_standar_kejujuran'];
+                                                    $resultKerapihan = $row['nilai_kerapihan_siswa'] - $row['nilai_standar_kerapihan'];
+
+                                                    // Data Perhitungan CF , SF dan Hasil
+
+                                                    $hasilAkademikCF = (nilaiStandar($resultPsikomotor) + nilaiStandar($resultKognitif)) / 2;
+                                                    $hasilAkademikSF = nilaiStandar($resultAfektif) / 1;
+                                                    $hasilNonAkademikCF = nilaiStandar($resultKeterampilan) / 1;
+                                                    $hasilNonAkademikSF = nilaiStandar($resultEskul) / 1;
+                                                    $hasilKarakterCF = nilaiStandar($resultKejujuran) / 1;
+                                                    $hasilKarakterSF = nilaiStandar($resultKerapihan) / 1;
+
+                                                    $Na = (($nilaiCF / 100) * $hasilAkademikCF) + (($nilaiSF / 100) * $hasilAkademikSF);
+                                                    $NnA = (($nilaiCF / 100) * $hasilNonAkademikCF) + (($nilaiSF / 100) * $hasilNonAkademikSF);
+                                                    $NK = (($nilaiCF / 100) * $hasilKarakterCF) + (($nilaiSF / 100) * $hasilKarakterSF);
+                                                    $HA = (0.5 * $Na) + (0.3 * $NnA) + (0.2 * $NK);
+
+                                                    echo "<tr>";
+                                                    echo "<td>" . $no . "</td>";
+                                                    echo "<td>" . $row['nis'] . "</td>";
+                                                    echo "<td>" . $row['nama_siswa'] . "</td>";
+                                                    echo "<td>" . $row['kelas'] . "</td>";
+                                                    echo "<td>" . $row['tahun_angkatan'] . "</td>";
+                                                    echo "<td>" . $row['alamat'] . "</td>";
+                                                    echo "<td>" . $Na . "</td>";
+                                                    echo "<td>" . $NnA . "</td>";
+                                                    echo "<td>" . $NK . "</td>";
+                                                    echo "<td><b>" . $HA . "</b></td>";
+
+                                                    $no++;
+                                                }
+                                                echo '
+                                                </tbody>
+                                                <tfoot>
+                                                <tr>
+                                                    <th>NO</th>
+                                                    <th>NIS</th>
+                                                    <th>Nama Siswa</th>
+                                                    <th>Kelas</th>
+                                                    <th>Tahun Angkatan</th>
+                                                    <th>Alamat</th>
+                                                    <th>NA</th>
+                                                    <th>NnA</th>
+                                                    <th>NK</th>
+                                                    <th>Hasil</th>
+                                                </tr>
+                                            </tfoot>
+                                            </table>';
+
                                                 // Apakah kita perlu menjalankan fungsi mysqli_free_result() ini? baca bagian VII
                                                 mysqli_free_result($query);
 
@@ -442,7 +595,7 @@ if ($_SESSION['level'] == "") {
                                     </div>
                                 </div>
                             </div>
-                            <!---- Data Tabel Konversi---->
+                            <!---- Data Tabel Hasil Akhir---->
                         </div>
                     </div>
                     <!-- content-wrapper ends -->
@@ -475,10 +628,21 @@ if ($_SESSION['level'] == "") {
     header("location:../error-404.php");
 }
 
+$dataArr = [1, 3, 2, 1, 2, 4, 2, 5, 1];
+$jumlah = 0;
+
+for ($i = 0; $i < count($dataArr); $i++) {
+    if ($dataArr[$i] == 2) {
+        $jumlah += $dataArr[$i];
+    }
+}
+echo $jumlah;
+
 ?>
 
     </html>
+
     <!-- SELECT id_kriteria_kategori, nama_kategori,
-                                                    COUNT(DISTINCT CASE WHEN id_kriteria_kategori = 1 THEN nama_kategori END) kriteria_count_a, 
-                                                    COUNT(DISTINCT CASE WHEN id_kriteria_kategori = 2 THEN nama_kategori END) kriteria_count_b 
-                                                    FROM kategori_penilaian -->
+COUNT(DISTINCT CASE WHEN id_kriteria_kategori = 1 THEN nama_kategori END) kriteria_count_a, 
+COUNT(DISTINCT CASE WHEN id_kriteria_kategori = 2 THEN nama_kategori END) kriteria_count_b 
+FROM kategori_penilaian -->
