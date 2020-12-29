@@ -53,7 +53,6 @@ if ($_SESSION['level'] == "") {
                 $('#tabelSatu').DataTable(
 
                     {
-
                         "aLengthMenu": [
                             [5, 10, 25, -1],
                             [5, 10, 25, "All"]
@@ -67,7 +66,6 @@ if ($_SESSION['level'] == "") {
                 $('#tabelDua').DataTable(
 
                     {
-
                         "aLengthMenu": [
                             [5, 10, 25, -1],
                             [5, 10, 25, "All"]
@@ -81,7 +79,6 @@ if ($_SESSION['level'] == "") {
                 $('#tabelTiga').DataTable(
 
                     {
-
                         "aLengthMenu": [
                             [5, 10, 25, -1],
                             [5, 10, 25, "All"]
@@ -95,7 +92,6 @@ if ($_SESSION['level'] == "") {
                 $('#tabelEmpat').DataTable(
 
                     {
-
                         "aLengthMenu": [
                             [5, 10, 25, -1],
                             [5, 10, 25, "All"]
@@ -525,7 +521,7 @@ if ($_SESSION['level'] == "") {
                                                         $nilaiSF = $row1['nilai_kriteria'];
                                                     }
                                                 }
-
+                                                
                                                 // menampilkan data yang sudah di hitung
                                                 while ($row = mysqli_fetch_array($query)) {
 
@@ -551,7 +547,7 @@ if ($_SESSION['level'] == "") {
                                                     $NnA = (($nilaiCF / 100) * $hasilNonAkademikCF) + (($nilaiSF / 100) * $hasilNonAkademikSF);
                                                     $NK = (($nilaiCF / 100) * $hasilKarakterCF) + (($nilaiSF / 100) * $hasilKarakterSF);
                                                     $HA = (0.5 * $Na) + (0.3 * $NnA) + (0.2 * $NK);
-
+                                                    
                                                     echo "<tr>";
                                                     echo "<td>" . $no . "</td>";
                                                     echo "<td>" . $row['nis'] . "</td>";
@@ -566,6 +562,7 @@ if ($_SESSION['level'] == "") {
 
                                                     $no++;
                                                 }
+                                                
                                                 echo '
                                                 </tbody>
                                                 <tfoot>
@@ -628,15 +625,15 @@ if ($_SESSION['level'] == "") {
     header("location:../error-404.php");
 }
 
-$dataArr = [1, 3, 2, 1, 2, 4, 2, 5, 1];
-$jumlah = 0;
+// $dataArr = [1, 3, 2, 1, 2, 4, 2, 5, 1];
+// $jumlah = 0;
 
-for ($i = 0; $i < count($dataArr); $i++) {
-    if ($dataArr[$i] == 2) {
-        $jumlah += $dataArr[$i];
-    }
-}
-echo $jumlah;
+// for ($i = 0; $i < count($dataArr); $i++) {
+//     if ($dataArr[$i] == 2) {
+//         $jumlah += $dataArr[$i];
+//     }
+// }
+// echo $jumlah;
 
 ?>
 

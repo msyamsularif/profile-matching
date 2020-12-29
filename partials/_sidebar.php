@@ -34,31 +34,31 @@ include("../koneksi.php");
       echo '       
             <li class="nav-item" >
               <a class="nav-link" href="../dashboard/index.php">
-                <i class="menu-icon mdi mdi-television"></i>
+                <i class="menu-icon mdi mdi-monitor-multiple"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../jenis_kriteria">
-                <i class="menu-icon mdi mdi-account-card-details"></i>
+                <i class="menu-icon mdi mdi-note-multiple"></i>
                 <span class="menu-title">Jenis Kriteria</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../kategori_penilaian">
-                <i class="menu-icon mdi mdi-account-card-details"></i>
+                <i class="menu-icon mdi mdi-tooltip-edit"></i>
                 <span class="menu-title">Kategori Penilaian</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../data_siswa">
-                <i class="menu-icon mdi mdi-account-card-details"></i>
+                <i class="menu-icon mdi mdi-account-multiple"></i>
                 <span class="menu-title">Data Siswa</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-kategori" aria-expanded="false" aria-controls="ui-kategori">
-                <i class="menu-icon mdi mdi-key-variant"></i>
+                <i class="menu-icon mdi mdi-book-multiple-variant"></i>
                 <span class="menu-title">Data Kriteria</span>
                 <i class="menu-arrow"></i>
               </a>
@@ -90,13 +90,13 @@ include("../koneksi.php");
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../nilai_standar">
-                <i class="menu-icon mdi mdi-account-card-details"></i>
+                <i class="menu-icon mdi mdi-clipboard-text"></i>
                 <span class="menu-title">Data Nilai Standar</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../penilaian">
-                <i class="menu-icon mdi mdi-account-card-details"></i>
+                <i class="menu-icon mdi mdi-approval"></i>
                 <span class="menu-title">Penilaian</span>
               </a>
             </li>';
