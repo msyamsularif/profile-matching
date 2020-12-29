@@ -63,7 +63,7 @@ require_once '../koneksi.php';
             [5, 10, 25, -1],
             [5, 10, 25, "All"]
           ],
-          "iDisplayLength": 5,
+          "iDisplayLength": 3,
           "order": [
             [4, "desc"]
           ]
@@ -79,7 +79,7 @@ require_once '../koneksi.php';
             [5, 10, 25, -1],
             [5, 10, 25, "All"]
           ],
-          "iDisplayLength": 5,
+          "iDisplayLength": 3,
           "order": [
             [4, "desc"]
           ]
@@ -95,7 +95,7 @@ require_once '../koneksi.php';
             [5, 10, 25, -1],
             [5, 10, 25, "All"]
           ],
-          "iDisplayLength": 5,
+          "iDisplayLength": 3,
           "order": [
             [4, "desc"]
           ]
@@ -111,7 +111,7 @@ require_once '../koneksi.php';
             [5, 10, 25, -1],
             [5, 10, 25, "All"]
           ],
-          "iDisplayLength": 5,
+          "iDisplayLength": 3,
           "order": [
             [4, "desc"]
           ]
@@ -127,7 +127,7 @@ require_once '../koneksi.php';
             [5, 10, 25, -1],
             [5, 10, 25, "All"]
           ],
-          "iDisplayLength": 5,
+          "iDisplayLength": 3,
           "order": [
             [4, "desc"]
           ]
@@ -143,7 +143,7 @@ require_once '../koneksi.php';
             [5, 10, 25, -1],
             [5, 10, 25, "All"]
           ],
-          "iDisplayLength": 5,
+          "iDisplayLength": 3,
           "order": [
             [4, "desc"]
           ]
