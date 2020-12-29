@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Des 2020 pada 08.33
+-- Waktu pembuatan: 29 Des 2020 pada 09.55
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.1
 
@@ -72,14 +72,14 @@ CREATE TABLE `data_siswa` (
 INSERT INTO `data_siswa` (`nis`, `nama_siswa`, `kelas`, `tahun_angkatan`, `alamat`, `nilai_psikomotor_siswa`, `nilai_kognitif_siswa`, `nilai_afektif_siswa`, `nilai_keterampilan_siswa`, `nilai_eskul_siswa`, `nilai_kejujuran_siswa`, `nilai_kerapihan_siswa`) VALUES
 (12345, 'n1', '1', 2017, 'Bekasi', 2, 2, 3, 5, 3, 2, 2),
 (13578, 'n3', '1', 2017, 'Bekasi', 3, 3, 2, 2, 4, 2, 2),
-(24680, 'n4', '1', 2017, 'Bekasi', 4, 3, 4, 2, 2, 3, 3),
-(47123, 'n8', '1', 2017, 'Bekasi', 4, 5, 2, 4, 4, 2, 4),
-(47248, 'n5', '1', 2017, 'Bekasi', 2, 4, 3, 3, 3, 4, 4),
-(65478, 'n10', '1', 2017, 'Bekasi', 3, 2, 3, 2, 2, 3, 4),
-(65809, 'n7', '1', 2017, 'Bekasi', 5, 4, 3, 3, 3, 4, 5),
-(67890, 'n2', '1', 2017, 'Bekasi', 3, 2, 5, 2, 2, 2, 3),
-(76390, 'n9', '1', 2017, 'Bekasi', 4, 3, 2, 3, 5, 5, 4),
-(82903, 'n6', '1', 2017, 'Bekasi', 5, 4, 3, 5, 1, 3, 4);
+(24680, 'n4', '2', 2016, 'Bekasi', 4, 3, 4, 2, 2, 3, 3),
+(47123, 'n8', '2', 2016, 'Bekasi', 4, 5, 2, 4, 4, 2, 4),
+(47248, 'n5', '3', 2015, 'Bekasi', 2, 4, 3, 3, 3, 4, 4),
+(65478, 'n10', '3', 2015, 'Bekasi', 3, 2, 3, 2, 2, 3, 4),
+(65809, 'n7', '4', 2014, 'Bekasi', 5, 4, 3, 3, 3, 4, 5),
+(67890, 'n2', '5', 2013, 'Bekasi', 3, 2, 5, 2, 2, 2, 3),
+(76390, 'n9', '6', 2012, 'Bekasi', 4, 3, 2, 3, 5, 5, 4),
+(82903, 'n6', '6', 2012, 'Bekasi', 5, 4, 3, 5, 1, 3, 4);
 
 -- --------------------------------------------------------
 
