@@ -7,7 +7,7 @@ include("../koneksi.php");
       <div class="nav-link">
         <div class="user-wrapper">
           <div class="profile-image">
-            <img src="../public/images/faces/face1.jpg" alt="profile image">
+            <img src="../public/images/faces-clipart/pic-3.png" alt="profile image">
           </div>
           <div class="text-wrapper">
             <p class="profile-name"><?php echo $_SESSION['nama_user']; ?></p>
@@ -16,9 +16,7 @@ include("../koneksi.php");
               $leveluser = $_SESSION["level"];
               $level = array(
                 '1' => 'Admin',
-                '2' => 'Prodi',
-                '3' => 'Dosen',
-                '4' => 'Mahasiswa',
+                '2' => 'Guru',
               );
               ?>
               <small class="designation text-muted"><?php echo $level[$leveluser]; ?></small>

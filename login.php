@@ -15,10 +15,11 @@
   <link rel="stylesheet" href="public/css/style.css">
   <!-- endinject -->
   <style>
-    .logo img{
+    .logo img {
       width: 100%;
       height: 100%;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
+      margin-right: 20px;
     }
   </style>
 </head>
@@ -30,29 +31,28 @@
         <div class="row w-100">
           <div class="col-lg-4 mx-auto">
             <div class="auto-form-wrapper">
-            <div class="container">
-              <a class="logo">
-                <img src="public/images/logo_teknik.png">
-              </a>
-            </div>
+              <div class="container">
+                <a class="logo">
+                  <img src="public/images/login-logo.png">
+                </a>
+              </div>
               <div>
                 <!-- BEGIN::Menampilkan Keterangan Gagal Jika Username dan Password Gagal -->
-                <?php 
-                if(isset($_GET['pesan'])){
-                  if($_GET['pesan']=="gagal"){
+                <?php
+                if (isset($_GET['pesan'])) {
+                  if ($_GET['pesan'] == "gagal") {
                     //echo "<script> alert('Username atau Password salah!');document.location.href='index.php'</script>";
                     echo "<div class='alert alert-danger'>
                             <strong>Warning! </strong> Username Atau Password Salah!
                           </div>";
-                  }
-                  else if($_GET['pesan']=="belum_login"){
+                  } else if ($_GET['pesan'] == "belum_login") {
                     //echo "<script> alert('Anda Harus Login!');document.location.href='index.php'</script>";
                     echo "<div class='alert alert-danger'>
                             <strong>Warning! </strong> Anda Harus Login!
                           </div>";
                   }
                 }
-              ?>
+                ?>
                 <!-- END::Menampilkan Keterangan Gagal Jika Username dan Password Gagal -->
               </div>
               <form action="login_proses.php" method="post">
@@ -94,7 +94,7 @@
                 <a href="#">Terms</a>
               </li>
             </ul>
-            <p class="footer-text text-center">copyright © 2019 <a href="https://localhost/siaunkris">SIA Unkris</a>. All rights reserved.</p>
+            <p class="footer-text text-center">copyright © 2020 <a href="#">SPK Profile-matching</a>. All rights reserved.</p>
           </div>
         </div>
       </div>

@@ -28,17 +28,7 @@ if(isset($_POST['submit']))
             
             header("Location:dashboard/index.php");
         }
-        else if($row['level'] == "3")
-        {
-            
-            header("Location:dashboard/index.php");
-        }
         else if($row['level'] == "2")
-        {
-            
-            header("Location:dashboard/index.php");
-        }
-        else if($row['level'] == "4")
         {
             
             header("Location:dashboard/index.php");

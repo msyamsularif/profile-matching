@@ -6,15 +6,11 @@ include("../koneksi.php");
 if(isset($_POST['input'])){
 
     // ambil data dari formulir
-    $nip_user = $_POST["nip_user"];
-    $nama_user = $_POST["nama_user"];
-    $username = $_POST["username"];    
-    $password = $_POST["password"];
-    $level = $_POST["level"];
-    $jabatan_user = $_POST["jabatan_user"];
+    $kode_user = $_POST["kode_user"];
+    $nama_usergroup = $_POST["nama_usergroup"];
 
     // buat query
-    $query = "INSERT INTO user VALUE ('','$nip_user', '$nama_user', '$username', '$password', '$level', '$jabatan_user')";
+    $query = "INSERT INTO user_group VALUE ('$kode_user', '$nama_usergroup')";
     $row = mysqli_query($conn, $query);
 
     // apakah query simpan berhasil?

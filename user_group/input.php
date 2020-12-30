@@ -80,76 +80,27 @@ if ($_SESSION['level'] == "") {
                   <div class="col-12 grid-margin">
                     <div class="card">
                       <div class="card-body">
-                        <h4 class="card-title">Input Data User</h4>
+                        <h4 class="card-title">Input Data User Group</h4>
                         <br />
                         <form class="form-sample" action="input_proses.php" method="post">
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">NIP USER</label>
+                                <label class="col-sm-3 col-form-label">KODE USER</label>
                                 <div class="col-sm-9">
-                                  <input type="text" name="nip_user" class="form-control" />
+                                  <input type="text" name="kode_user" class="form-control" readonly="" />
                                 </div>
                               </div>
                             </div>
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">NAMA USER</label>
+                                <label class="col-sm-3 col-form-label">NAMA USER GROUP</label>
                                 <div class="col-sm-9">
-                                  <input type="text" name="nama_user" class="form-control" />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">USERNAME</label>
-                                <div class="col-sm-9">
-                                  <input type="text" name="username" class="form-control" />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">PASSWORD</label>
-                                <div class="col-sm-9">
-                                  <input type="text" name="password" class="form-control" />
+                                  <input type="text" name="nama_usergroup" class="form-control" />
                                 </div>
                               </div>
                             </div>
                           </div>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">LEVEL</label>
-                                <div class="col-sm-9">
-                                  <select name="level" class="form-control">
-                                    <?php
-
-                                    $query = mysqli_query($conn, "SELECT * FROM user_group");
-                                    if ($query == false) {
-                                      die("Terdapat Kesalahan : " . mysqli_error($conn));
-                                    }
-                                    while ($row = mysqli_fetch_array($query)) {
-                                      echo "<option value='$row[kode_user]'>$row[nama_usergroup]</option>";
-                                    }
-                                    ?>
-                                  </select>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">JABATAN</label>
-                                <div class="col-sm-9">
-                                  <select name="jabatan_user" class="form-control">
-                                    <option value='Admin'>Admin</option>
-                                    <option value='Guru'>Guru</option>
-                                  </select>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
                           <div class="row">
                             <div class="row">
                               <div class="col-sm-6">

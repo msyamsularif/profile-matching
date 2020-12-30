@@ -4,13 +4,23 @@ session_start();
 // cek apakah yang mengakses halaman ini sudah login
 if ($_SESSION['level'] == "") {
   header("location:../index.php?pesan=belum_login");
-} else if ($_SESSION['level'] == "1") {
+}
+// memanggil file koneksi.php untuk membuat koneksi
+include '../koneksi.php';
 
+// mengecek apakah di url ada nilai GET id
+// ambil nilai id dari url dan disimpan dalam variabel $id
+$kode_user = ($_GET["kode_user"]);
 
+// menampilkan data mahasiswa dari database yang mempunyai id=$id
+$query = mysqli_query($conn, "SELECT * FROM user_group WHERE kode_user='$kode_user'");
+if ($query == false) {
+  die("Terjadi Kesalahan : " . mysqli_error($conn));
+}
+while ($row = mysqli_fetch_array($query)) {
 ?>
   <!DOCTYPE html>
   <html lang="en">
-  <?php require "../koneksi.php"; ?>
 
   <head>
     <!-- Required meta tags -->
@@ -80,70 +90,46 @@ if ($_SESSION['level'] == "") {
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Table User</h4>
-                    <h5 class="card-description">
-                      <a href="input.php">Tambah data</a>
-                    </h5>
-                    <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
-                      <div class="row">
-
-                        <?php
-                        if ($_SESSION['level'] == "1") {
-                          $sql = 'SELECT * FROM user';
-                        } else {
-                          header('location:../error-404.php');
-                        }
-                        $query = mysqli_query($conn, $sql);
-
-                        if (!$query) {
-                          die('SQL Error: ' . mysqli_error($conn));
-                        }
-
-                        echo '<table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
-                        <thead>
-                        <tr>
-                            <th>NIP User</th>
-                            <th>Nama User</th>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>Level</th>
-                            <th>Jabatn</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>';
-
-                        while ($row = mysqli_fetch_array($query)) {
-                          echo "<tr>";
-                          echo "<td>" . $row['nip_user'] . "</td>";
-                          echo "<td>" . $row['nama_user'] . "</td>";
-                          echo "<td>" . $row['username'] . "</td>";
-                          echo "<td>" . $row['password'] . "</td>";
-                          echo "<td>" . $row['level'] . "</td>";
-                          echo "<td>" . $row['jabatan_user'] . "</td>";
-                          echo "<td align='center'><a href='form-edit.php?id_user=$row[id_user]'>Edit</a> | <a href='delete.php?id_user=$row[id_user]'>Delete</a></td></tr>";
-                        }
-                        echo '
-                        </tbody>
-                        <tfoot>
-                          <tr>
-                            <th>NIP User</th>
-                            <th>Nama User</th>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>Level</th>
-                            <th>Jabatn</th>
-                            <th>Action</th>
-                          </tr>
-                      </tfoot>
-                      </table>';
-
-                        // Apakah kita perlu menjalankan fungsi mysqli_free_result() ini? baca bagian VII
-                        mysqli_free_result($query);
-
-                        // Apakah kita perlu menjalankan fungsi mysqli_close() ini? baca bagian VII
-                        mysqli_close($conn);
-                        ?>
+                    <div class="col-12 grid-margin">
+                      <div class="card">
+                        <div class="card-body">
+                          <h4 class="card-title">Edit Data User Group</h4>
+                          <br />
+                          <form class="form-sample" action="proses-edit.php" enctype="multipart/form-data" method="post">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group row">
+                                  <label class="col-sm-3 col-form-label">KODE USER</label>
+                                  <div class="col-sm-9">
+                                    <input type="text" name="kode_user" class="form-control" value="<?php echo $row['kode_user']; ?>" readonly="" />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group row">
+                                  <label class="col-sm-3 col-form-label">NAMA USER GROUP</label>
+                                  <div class="col-sm-9">
+                                    <input type="text" name="nama_usergroup" class="form-control" value="<?php echo $row['nama_usergroup']; ?>" />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <input type="submit" class="btn btn-success btn-rounded btn-fw" name="edit" value="Update">
+                            </div>
+                            <div class="col-sm-6">
+                              <a href="index.php" class="btn btn-danger btn-rounded btn-fw">
+                                <span>
+                                  Batal
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        </form>
                       </div>
                     </div>
                   </div>
@@ -167,10 +153,11 @@ if ($_SESSION['level'] == "") {
 
             </div>
           </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <?php require "../partials/_fotter.php"; ?>
-          <!-- partial -->
+        <?php } ?>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <?php require "../partials/_fotter.php"; ?>
+        <!-- partial -->
         </div>
         <!-- main-panel ends -->
       </div>
@@ -192,10 +179,5 @@ if ($_SESSION['level'] == "") {
     <script src="../public/js/dashboard.js"></script>
     <!-- End custom js for this page-->
   </body>
-<?php
-} else {
-  header("location:../error-404.php");
-}
-?>
 
   </html>

@@ -80,7 +80,7 @@ if ($_SESSION['level'] == "") {
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Table User</h4>
+                    <h4 class="card-title">Table User Group</h4>
                     <h5 class="card-description">
                       <a href="input.php">Tambah data</a>
                     </h5>
@@ -89,7 +89,7 @@ if ($_SESSION['level'] == "") {
 
                         <?php
                         if ($_SESSION['level'] == "1") {
-                          $sql = 'SELECT * FROM user';
+                          $sql = 'SELECT * FROM user_group';
                         } else {
                           header('location:../error-404.php');
                         }
@@ -102,12 +102,8 @@ if ($_SESSION['level'] == "") {
                         echo '<table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
                         <thead>
                         <tr>
-                            <th>NIP User</th>
-                            <th>Nama User</th>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>Level</th>
-                            <th>Jabatn</th>
+                            <th>Kode User</th>
+                            <th>Nama User Group</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -115,24 +111,16 @@ if ($_SESSION['level'] == "") {
 
                         while ($row = mysqli_fetch_array($query)) {
                           echo "<tr>";
-                          echo "<td>" . $row['nip_user'] . "</td>";
-                          echo "<td>" . $row['nama_user'] . "</td>";
-                          echo "<td>" . $row['username'] . "</td>";
-                          echo "<td>" . $row['password'] . "</td>";
-                          echo "<td>" . $row['level'] . "</td>";
-                          echo "<td>" . $row['jabatan_user'] . "</td>";
-                          echo "<td align='center'><a href='form-edit.php?id_user=$row[id_user]'>Edit</a> | <a href='delete.php?id_user=$row[id_user]'>Delete</a></td></tr>";
+                          echo "<td>" . $row['kode_user'] . "</td>";
+                          echo "<td>" . $row['nama_usergroup'] . "</td>";
+                          echo "<td align='center'><a href='form-edit.php?kode_user=$row[kode_user]'>Edit</a> | <a href='delete.php?kode_user=$row[kode_user]'>Delete</a></td></tr>";
                         }
                         echo '
                         </tbody>
                         <tfoot>
                           <tr>
-                            <th>NIP User</th>
-                            <th>Nama User</th>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>Level</th>
-                            <th>Jabatn</th>
+                            <th>Kode User</th>
+                            <th>Nama User Group</th>
                             <th>Action</th>
                           </tr>
                       </tfoot>

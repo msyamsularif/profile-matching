@@ -60,8 +60,8 @@ require_once '../koneksi.php';
 
         {
           "aLengthMenu": [
-            [5, 10, 25, -1],
-            [5, 10, 25, "All"]
+            [3, 5, 10, 25, -1],
+            [3, 5, 10, 25, "All"]
           ],
           "iDisplayLength": 3,
           "order": [
@@ -76,8 +76,8 @@ require_once '../koneksi.php';
 
         {
           "aLengthMenu": [
-            [5, 10, 25, -1],
-            [5, 10, 25, "All"]
+            [3, 5, 10, 25, -1],
+            [3, 5, 10, 25, "All"]
           ],
           "iDisplayLength": 3,
           "order": [
@@ -92,8 +92,8 @@ require_once '../koneksi.php';
 
         {
           "aLengthMenu": [
-            [5, 10, 25, -1],
-            [5, 10, 25, "All"]
+            [3, 5, 10, 25, -1],
+            [3, 5, 10, 25, "All"]
           ],
           "iDisplayLength": 3,
           "order": [
@@ -108,8 +108,8 @@ require_once '../koneksi.php';
 
         {
           "aLengthMenu": [
-            [5, 10, 25, -1],
-            [5, 10, 25, "All"]
+            [3, 5, 10, 25, -1],
+            [3, 5, 10, 25, "All"]
           ],
           "iDisplayLength": 3,
           "order": [
@@ -124,8 +124,8 @@ require_once '../koneksi.php';
 
         {
           "aLengthMenu": [
-            [5, 10, 25, -1],
-            [5, 10, 25, "All"]
+            [3, 5, 10, 25, -1],
+            [3, 5, 10, 25, "All"]
           ],
           "iDisplayLength": 3,
           "order": [
@@ -140,8 +140,8 @@ require_once '../koneksi.php';
 
         {
           "aLengthMenu": [
-            [5, 10, 25, -1],
-            [5, 10, 25, "All"]
+            [3, 5, 10, 25, -1],
+            [3, 5, 10, 25, "All"]
           ],
           "iDisplayLength": 3,
           "order": [

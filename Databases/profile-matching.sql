@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Des 2020 pada 09.55
+-- Waktu pembuatan: 30 Des 2020 pada 12.29
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.1
 
@@ -305,6 +305,25 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `nip_user`, `nama_user`, `username`, `password`, `level`, `jabatan_user`) VALUES
 (1, 123, 'admin', 'admin', 'admin', 1, 'admin');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user_group`
+--
+
+CREATE TABLE `user_group` (
+  `kode_user` int(12) NOT NULL,
+  `nama_usergroup` char(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user_group`
+--
+
+INSERT INTO `user_group` (`kode_user`, `nama_usergroup`) VALUES
+(1, 'Admin'),
+(2, 'Guru');
+
 --
 -- Indexes for dumped tables
 --
@@ -382,6 +401,12 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
+-- Indeks untuk tabel `user_group`
+--
+ALTER TABLE `user_group`
+  ADD PRIMARY KEY (`kode_user`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -455,7 +480,13 @@ ALTER TABLE `psikomotor`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `user_group`
+--
+ALTER TABLE `user_group`
+  MODIFY `kode_user` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

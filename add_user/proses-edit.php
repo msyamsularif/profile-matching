@@ -11,13 +11,13 @@ if (isset($_POST['edit'])) {
     $username = $_POST["username"];    
     $password = $_POST["password"];
     $level = $_POST["level"];
-    $prodi_user = $_POST["prodi_user"];
+    $jabatan_user = $_POST["jabatan_user"];
 
   //buat dan jalankan query UPDATE
-  $query  = "UPDATE users SET ";
+  $query  = "UPDATE user SET ";
   $query .= "nip_user = '$nip_user', nama_user = '$nama_user', ";
   $query .= "username='$username', ";
-  $query .= "password = '$password', level= '$level', prodi_user= '$prodi_user' ";
+  $query .= "password = '$password', level= '$level', jabatan_user= '$jabatan_user' ";
   $query .= "WHERE id_user = '$id_user'";
 
   $row = mysqli_query($conn, $query);
