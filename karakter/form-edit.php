@@ -1,10 +1,36 @@
 <?php
 session_start();
-include("../koneksi.php");
+
 // cek apakah yang mengakses halaman ini sudah login
 if ($_SESSION['level'] == "") {
     header("location:../index.php?pesan=belum_login");
 }
+// memanggil file koneksi.php untuk membuat koneksi
+include '../koneksi.php';
+
+// mengecek apakah di url ada nilai GET id
+if (isset($_GET['bobot_karakter'])) {
+    // ambil nilai id dari url dan disimpan dalam variabel $id
+    $bobot_karakter = ($_GET["bobot_karakter"]);
+
+    // menampilkan data mahasiswa dari database yang mempunyai id=$id
+    $query = "SELECT * FROM karakter WHERE bobot_karakter='$bobot_karakter'";
+    $row = mysqli_query($conn, $query);
+    // mengecek apakah query gagal
+    if (!$row) {
+        die("Query Error: " . mysqli_errno($conn) .
+            " - " . mysqli_error($conn));
+    }
+    // mengambil data dari database dan membuat variabel" utk menampung data
+    // variabel ini nantinya akan ditampilkan pada form
+    $row = mysqli_fetch_assoc($row);
+    $bobot_karakter = $row["bobot_karakter"];
+    $range_penilaian_karakter = $row["range_penilaian_karakter"];
+} else {
+    // apabila tidak ada data GET id pada akan di redirect ke index.php
+    header("location:index.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,15 +106,15 @@ if ($_SESSION['level'] == "") {
                                     <div class="col-12 grid-margin">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="card-title">Input Data Kejujuran</h4>
+                                                <h4 class="card-title">Edit Data Karakter</h4>
                                                 <br />
-                                                <form class="form-sample" action="input_proses.php" method="post">
+                                                <form class="form-sample" action="proses-edit.php" method="post">
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">RANGE PENILAIAN</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" name="range_penilaian_kejujuran" class="form-control" />
+                                                                    <input type="text" name="range_penilaian_karakter" class="form-control" value="<?php echo $range_penilaian_karakter; ?>" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -96,25 +122,28 @@ if ($_SESSION['level'] == "") {
                                                             <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">BOBOT</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" name="bobot_kejujuran" class="form-control" />
+                                                                    <input type="text" name="bobot_karakter" class="form-control" value="<?php echo $bobot_karakter; ?>" readonly/>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row">
+
+
+                                                        <div class="form-group row">
                                                             <div class="row">
                                                                 <div class="col-sm-6">
-                                                                    <input type="submit" class="btn btn-success btn-rounded btn-fw" name="input" value="Input">
+                                                                    <input type="submit" class="btn btn-success btn-rounded btn-fw" name="edit" value="Update">
                                                                 </div>
                                                                 <div class="col-sm-6">
                                                                     <a href="index.php" class="btn btn-danger btn-rounded btn-fw">
-                                                                        <span>Batal</span>
+                                                                        <span>
+                                                                            Batal
+                                                                        </span>
                                                                     </a>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                 </form>
                                             </div>
-                                            <!--- end form input --->
                                         </div>
                                     </div>
                                 </div>

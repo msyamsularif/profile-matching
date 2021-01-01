@@ -6,11 +6,11 @@ include("../koneksi.php");
 if(isset($_POST['input'])){
 
     // ambil data dari formulir
-    $bobot_afektif = $_POST["bobot_afektif"];
-    $range_penilaian_afektif = $_POST["range_penilaian_afektif"];
+    $bobot_pengetahuan = $_POST["bobot_pengetahuan"];
+    $range_penilaian_pengetahuan = $_POST["range_penilaian_pengetahuan"];
 
     // buat query
-    $query = "INSERT INTO afektif VALUE ('$bobot_afektif','$range_penilaian_afektif')";
+    $query = "INSERT INTO pengetahuan VALUE ('$bobot_pengetahuan','$range_penilaian_pengetahuan')";
     $row = mysqli_query($conn, $query);
 
     // apakah query simpan berhasil?

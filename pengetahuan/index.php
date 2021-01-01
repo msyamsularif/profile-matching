@@ -80,7 +80,7 @@ if ($_SESSION['level'] == "") {
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Table Kejujuran</h4>
+                    <h4 class="card-title">Table Pengetahuan</h4>
                     <h5 class="card-description">
                       <a href="input.php">Tambah data</a>
                     </h5>
@@ -89,7 +89,7 @@ if ($_SESSION['level'] == "") {
 
                         <?php
                         if ($_SESSION['level'] == "1") {
-                          $sql = 'SELECT * FROM kejujuran';
+                          $sql = 'SELECT * FROM pengetahuan';
                         } else {
                           header('location:../error-404.php');
                         }
@@ -108,14 +108,14 @@ if ($_SESSION['level'] == "") {
                             <th>Action</th>
                         </tr>
                         </thead>
-                            <tbody>';
+                        <tbody>';
                         $no = 1;
                         while ($row = mysqli_fetch_array($query)) {
                           echo "<tr>";
                           echo "<td>" . $no . "</td>";
-                          echo "<td>" . $row['range_penilaian_kejujuran'] . "</td>";
-                          echo "<td>" . $row['bobot_kejujuran'] . "</td>";
-                          echo "<td align='center'><a href='form-edit.php?bobot_kejujuran=$row[bobot_kejujuran]'>Edit</a> | <a href='delete.php?bobot_kejujuran=$row[bobot_kejujuran]'>Delete</a></td></tr>";
+                          echo "<td>" . $row['range_penilaian_pengetahuan'] . "</td>";
+                          echo "<td>" . $row['bobot_pengetahuan'] . "</td>";
+                          echo "<td align='center'><a href='form-edit.php?bobot_pengetahuan=$row[bobot_pengetahuan]'>Edit</a> | <a href='delete.php?bobot_pengetahuan=$row[bobot_pengetahuan]'>Delete</a></td></tr>";
                           $no++;
                         }
                         echo '

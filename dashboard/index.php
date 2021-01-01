@@ -385,16 +385,16 @@ function datatableSiswa($nilaiKelas, $nomorTableKelas)
   }
 
   echo "<table id='$nomorTableKelas' class='table table-striped table-bordered table-responsive' style='width:100%'>
-        <thead>
-        <tr>
-          <th>NIS</th>
-          <th>Nama Siswa</th>
-          <th>Kelas</th>
-          <th>Tahun Angkatan</th>
-          <th><b>Hasil</b></th>
-        </tr>
-        </thead>
-        <tbody>";
+  <thead>
+  <tr>
+    <th>NIS</th>
+    <th>Nama Siswa</th>
+    <th>Kelas</th>
+    <th>Tahun Angkatan</th>
+    <th><b>Hasil</b></th>
+  </tr>
+  </thead>
+  <tbody>";
   // Mencari nilai perkategori
   $nilaiCF = 0;
   $nilaiSF = 0;
@@ -416,28 +416,21 @@ function datatableSiswa($nilaiKelas, $nomorTableKelas)
   while ($row = mysqli_fetch_array($query)) {
 
     // Data GAP
-    $resultPsikomotor = $row['nilai_psikomotor_siswa'] - $row['nilai_standar_psikomotor'];
-    $resultKognitif = $row['nilai_kognitif_siswa'] - $row['nilai_standar_kognitif'];
-    $resultAfektif = $row['nilai_afektif_siswa'] - $row['nilai_standar_afektif'];
+    $resultpengetahuan = $row['nilai_pengetahuan_siswa'] - $row['nilai_standar_pengetahuan'];
     $resultKeterampilan = $row['nilai_keterampilan_siswa'] - $row['nilai_standar_keterampilan'];
+    $resultKarakter = $row['nilai_karakter_siswa'] - $row['nilai_standar_karakter'];
     $resultEskul = $row['nilai_eskul_siswa'] - $row['nilai_standar_eskul'];
-    $resultKejujuran = $row['nilai_kejujuran_siswa'] - $row['nilai_standar_kejujuran'];
-    $resultKerapihan = $row['nilai_kerapihan_siswa'] - $row['nilai_standar_kerapihan'];
 
     // Data Perhitungan CF , SF dan Hasil
 
-    $hasilAkademikCF = (nilaiStandar($resultPsikomotor) + nilaiStandar($resultKognitif)) / 2;
-    $hasilAkademikSF = nilaiStandar($resultAfektif) / 1;
-    $hasilNonAkademikCF = nilaiStandar($resultKeterampilan) / 1;
+    $hasilAkademikCF = nilaiStandar($resultpengetahuan) / 1;
+    $hasilAkademikSF = nilaiStandar($resultKeterampilan) / 1;
+    $hasilNonAkademikCF = nilaiStandar($resultKarakter) / 1;
     $hasilNonAkademikSF = nilaiStandar($resultEskul) / 1;
-    $hasilKarakterCF = nilaiStandar($resultKejujuran) / 1;
-    $hasilKarakterSF = nilaiStandar($resultKerapihan) / 1;
 
     $Na = (($nilaiCF / 100) * $hasilAkademikCF) + (($nilaiSF / 100) * $hasilAkademikSF);
     $NnA = (($nilaiCF / 100) * $hasilNonAkademikCF) + (($nilaiSF / 100) * $hasilNonAkademikSF);
-    $NK = (($nilaiCF / 100) * $hasilKarakterCF) + (($nilaiSF / 100) * $hasilKarakterSF);
-    $HA = (0.5 * $Na) + (0.3 * $NnA) + (0.2 * $NK);
-
+    $HA = (0.6 * $Na) + (0.4 * $NnA);
     echo "<tr>";
     echo "<td>" . $row['nis'] . "</td>";
     echo "<td>" . $row['nama_siswa'] . "</td>";
@@ -446,17 +439,17 @@ function datatableSiswa($nilaiKelas, $nomorTableKelas)
     echo "<td><b>" . $HA . "</b></td>";
   }
   echo '
-        </tbody>
-        <tfoot>
-        <tr>
-          <th>NIS</th>
-          <th>Nama Siswa</th>
-          <th>Kelas</th>
-          <th>Tahun Angkatan</th>
-          <th><b>Hasil</b></th>
-        </tr>
-    </tfoot>
-    </table>';
+  </tbody>
+  <tfoot>
+  <tr>
+    <th>NIS</th>
+    <th>Nama Siswa</th>
+    <th>Kelas</th>
+    <th>Tahun Angkatan</th>
+    <th><b>Hasil</b></th>
+  </tr>
+  </tfoot>
+  </table>';
 }
 
 ?>

@@ -63,25 +63,16 @@ include("../koneksi.php");
               <div class="collapse" id="ui-kategori">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="../psikomotor">Psikomotor</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../kognitif">Kognitif</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../afektif">Afektif</a>
+                    <a class="nav-link" href="../pengetahuan">Pengetahuan</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="../keterampilan">Keterampilan</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="../karakter">Karakter</a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="../eskul">Eskul</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../kejujuran">Kejujuran</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../kerapihan">Kerapihan</a>
                   </li>
                 </ul>
               </div>

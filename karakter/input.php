@@ -80,7 +80,7 @@ if ($_SESSION['level'] == "") {
                                     <div class="col-12 grid-margin">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="card-title">Input Data Kerapihan</h4>
+                                                <h4 class="card-title">Input Data Karakter</h4>
                                                 <br />
                                                 <form class="form-sample" action="input_proses.php" method="post">
                                                     <div class="row">
@@ -88,7 +88,7 @@ if ($_SESSION['level'] == "") {
                                                             <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">RANGE PENILAIAN</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" name="range_penilaian_kerapihan" class="form-control" />
+                                                                    <input type="text" name="range_penilaian_karakter" class="form-control" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -96,10 +96,11 @@ if ($_SESSION['level'] == "") {
                                                             <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">BOBOT</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" name="bobot_kerapihan" class="form-control" />
+                                                                    <input type="text" name="bobot_karakter" class="form-control" />
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        
                                                         <div class="row">
                                                             <div class="row">
                                                                 <div class="col-sm-6">

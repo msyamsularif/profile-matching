@@ -74,7 +74,7 @@ label {
         <div class="col-lg-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Table Kognitif</h4>
+              <h4 class="card-title">Table Karakter</h4>
               <h5 class="card-description">
                 <a href="input.php">Tambah data</a>
               </h5>
@@ -83,7 +83,7 @@ label {
 
           <?php
 					if($_SESSION['level'] == "1"){
-          $sql = 'SELECT * FROM kognitif';
+          $sql = 'SELECT * FROM karakter';
 					}
 					else{
 						header('location:../error-404.php');
@@ -108,9 +108,9 @@ label {
                       while ($row = mysqli_fetch_array($query)) {
                         echo "<tr>";
                         echo "<td>".$no."</td>";
-                        echo "<td>".$row['range_penilaian_kognitif']."</td>";
-                        echo "<td>".$row['bobot_kognitif']."</td>";
-                        echo "<td align='center'><a href='form-edit.php?bobot_kognitif=$row[bobot_kognitif]'>Edit</a> | <a href='delete.php?bobot_kognitif=$row[bobot_kognitif]'>Delete</a></td></tr>";     
+                        echo "<td>".$row['range_penilaian_karakter']."</td>";
+                        echo "<td>".$row['bobot_karakter']."</td>";
+                        echo "<td align='center'><a href='form-edit.php?bobot_karakter=$row[bobot_karakter]'>Edit</a> | <a href='delete.php?bobot_karakter=$row[bobot_karakter]'>Delete</a></td></tr>";     
                       $no++;
                       }
                       echo '

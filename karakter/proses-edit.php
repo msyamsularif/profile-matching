@@ -5,13 +5,13 @@ if (isset($_POST['edit'])) {
   include("../koneksi.php");
 
   // membuat variabel untuk menampung data dari form edit
-    $bobot_kejujuran = $_POST["bobot_kejujuran"];
-    $range_penilaian_kejujuran = $_POST["range_penilaian_kejujuran"];
+  $bobot_karakter = $_POST["bobot_karakter"];
+    $range_penilaian_karakter = $_POST["range_penilaian_karakter"];
 
   //buat dan jalankan query UPDATE
-  $query  = "UPDATE kejujuran SET ";
-  $query .= "range_penilaian_kejujuran = '$range_penilaian_kejujuran'";
-  $query .= "WHERE bobot_kejujuran = '$bobot_kejujuran'";
+  $query  = "UPDATE karakter SET ";
+  $query .= "range_penilaian_karakter = '$range_penilaian_karakter'";
+  $query .= "WHERE bobot_karakter = '$bobot_karakter'";
 
   $row = mysqli_query($conn, $query);
 

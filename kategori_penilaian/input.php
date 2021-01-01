@@ -89,13 +89,10 @@ if ($_SESSION['level'] == "") {
                                 <label class="col-sm-3 col-form-label">NAMA KATEGORI</label>
                                 <div class="col-sm-9">
                                   <select name="nama_kategori" class="form-control">
-                                    <option value='Psikomotor'>Psikomotor</option>
-                                    <option value='Kognitif'>Kognitif</option>
-                                    <option value='Afektif'>Afektif</option>
+                                    <option value='Pengetahuan'>Pengetahuan</option>
                                     <option value='Keterampilan'>Keterampilan</option>
+                                    <option value='Karakter'>Karakter</option>
                                     <option value='Eskul'>Eskul</option>
-                                    <option value='Kejujuran'>Kejujuran</option>
-                                    <option value='Kerapihan'>Kerapihan</option>
                                   </select>
                                 </div>
                               </div>

@@ -102,20 +102,17 @@ if ($_SESSION['level'] == "") {
                         echo '<table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
                         <thead>
                         <tr>
-                            <th>NO</th>
-                            <th>NIS</th>
-                            <th>Nama Siswa</th>
-                            <th>Kelas</th>
-                            <th>Tahun Angkatan</th>
-                            <th>Alamat</th>
-                            <th>Nilai Psikomotor</th>
-                            <th>Nilai Kognitif</th>
-                            <th>Nilai Afektif</th>
-                            <th>Nilai Keterampilan</th>
-                            <th>Nilai Eskul</th>
-                            <th>Nilai Kejujuran</th>
-                            <th>Nilai Kerapihan</th>
-                            <th>Action</th>
+                          <th>NO</th>
+                          <th>NIS</th>
+                          <th>Nama Siswa</th>
+                          <th>Kelas</th>
+                          <th>Tahun Angkatan</th>
+                          <th>Alamat</th>
+                          <th>Nilai Pengetahuan</th>
+                          <th>Nilai Keterampilan</th>
+                          <th>Nilai Karakter</th>
+                          <th>Nilai Eskul</th>
+                          <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>';
@@ -129,13 +126,11 @@ if ($_SESSION['level'] == "") {
                           echo "<td>" . $row['kelas'] . "</td>";
                           echo "<td>" . $row['tahun_angkatan'] . "</td>";
                           echo "<td>" . $row['alamat'] . "</td>";
-                          echo "<td>" . $row['nilai_psikomotor_siswa'] . "</td>";
-                          echo "<td>" . $row['nilai_kognitif_siswa'] . "</td>";
-                          echo "<td>" . $row['nilai_afektif_siswa'] . "</td>";
+                          echo "<td>" . $row['nilai_pengetahuan_siswa'] . "</td>";
                           echo "<td>" . $row['nilai_keterampilan_siswa'] . "</td>";
+                          echo "<td>" . $row['nilai_karakter_siswa'] . "</td>";
                           echo "<td>" . $row['nilai_eskul_siswa'] . "</td>";
-                          echo "<td>" . $row['nilai_kejujuran_siswa'] . "</td>";
-                          echo "<td>" . $row['nilai_kerapihan_siswa'] . "</td>";
+
                           echo "<td align='center'><a href='form-edit.php?nis=$row[nis]'>Edit</a> | <a href='delete.php?nis=$row[nis]'>Delete</a></td></tr>";
                           $no++;
                         }
@@ -149,13 +144,10 @@ if ($_SESSION['level'] == "") {
                               <th>Kelas</th>
                               <th>Tahun Angkatan</th>
                               <th>Alamat</th>
-                              <th>Nilai Psikomotor</th>
-                              <th>Nilai Kognitif</th>
-                              <th>Nilai Afektif</th>
+                              <th>Nilai Pengetahuan</th>
                               <th>Nilai Keterampilan</th>
+                              <th>Nilai Karakter</th>
                               <th>Nilai Eskul</th>
-                              <th>Nilai Kejujuran</th>
-                              <th>Nilai Kerapihan</th>
                               <th>Action</th>
                           </tr>
                       </tfoot>
@@ -215,10 +207,10 @@ if ($_SESSION['level'] == "") {
     <script src="../public/js/dashboard.js"></script>
     <!-- End custom js for this page-->
   </body>
-    <?php
-    } else {
-      header("location:../error-404.php");
-    }
-    ?>
+<?php
+} else {
+  header("location:../error-404.php");
+}
+?>
 
   </html>

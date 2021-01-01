@@ -11,13 +11,13 @@ include '../koneksi.php';
 // After delete redirect to Home, so that latest user list will be displayed.
 //header("Location:index.php");
 
-if( isset($_GET['bobot_kejujuran']) ){
+if( isset($_GET['bobot_pengetahuan']) ){
 
     // ambil id dari query string
-    $bobot_kejujuran = $_GET['bobot_kejujuran'];
+    $bobot_pengetahuan = $_GET['bobot_pengetahuan'];
 
     // buat query hapus
-    $query = "DELETE FROM kejujuran WHERE bobot_kejujuran='$bobot_kejujuran'";
+    $query = "DELETE FROM pengetahuan WHERE bobot_pengetahuan='$bobot_pengetahuan'";
     $row = mysqli_query($conn, $query);
 
     // apakah query hapus berhasil?

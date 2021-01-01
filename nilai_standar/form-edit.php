@@ -25,13 +25,10 @@ if (isset($_GET['id_nilai_standar'])) {
     // variabel ini nantinya akan ditampilkan pada form
     $row = mysqli_fetch_assoc($row);
     $id_nilai_standar = $row["id_nilai_standar"];
-    $nilai_standar_psikomotor = $row["nilai_standar_psikomotor"];
-    $nilai_standar_kognitif = $row["nilai_standar_kognitif"];
-    $nilai_standar_afektif = $row["nilai_standar_afektif"];
+    $nilai_standar_pengetahuan = $row["nilai_standar_pengetahuan"];
     $nilai_standar_keterampilan = $row["nilai_standar_keterampilan"];
+    $nilai_standar_karakter = $row["nilai_standar_karakter"];
     $nilai_standar_eskul = $row["nilai_standar_eskul"];
-    $nilai_standar_kejujuran = $row["nilai_standar_kejujuran"];
-    $nilai_standar_kerapihan = $row["nilai_standar_kerapihan"];
 } else {
     // apabila tidak ada data GET id pada akan di redirect ke index.php
     header("location:index.php");
@@ -116,28 +113,12 @@ if (isset($_GET['id_nilai_standar'])) {
                                                 <br />
                                                 <form class="form-sample" action="proses-edit.php" method="post">
                                                     <div class="row">
-                                                    <input type="text" name="id_nilai_standar" class="form-control" value="<?php echo $id_nilai_standar; ?>" hidden/>
-                                                    <div class="col-md-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR PSIKOMOTOR</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="text" name="nilai_standar_psikomotor" class="form-control" value="<?php echo $nilai_standar_psikomotor; ?>" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <input type="text" name="id_nilai_standar" class="form-control" value="<?php echo $id_nilai_standar; ?>" hidden />
                                                         <div class="col-md-6">
                                                             <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR KOGNITIF</label>
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR PENGETAHUAN</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" name="nilai_standar_kognitif" class="form-control" value="<?php echo $nilai_standar_kognitif; ?>" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR AFEKTIF</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="text" name="nilai_standar_afektif" class="form-control" value="<?php echo $nilai_standar_afektif; ?>" />
+                                                                    <input type="text" name="nilai_standar_pengetahuan" class="form-control" value="<?php echo $nilai_standar_pengetahuan; ?>" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -151,45 +132,36 @@ if (isset($_GET['id_nilai_standar'])) {
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR KARAKTER</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_standar_karakter" class="form-control" value="<?php echo $nilai_standar_karakter; ?>" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">NILAI STANDAR ESKUL</label>
                                                                 <div class="col-sm-9">
                                                                     <input type="text" name="nilai_standar_eskul" class="form-control" value="<?php echo $nilai_standar_eskul; ?>" />
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR KEJUJURAN</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="text" name="nilai_standar_kejujuran" class="form-control" value="<?php echo $nilai_standar_kejujuran; ?>" />
-                                                                </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <input type="submit" class="btn btn-success btn-rounded btn-fw" name="edit" value="Update">
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR KERAPIHAN</label>
-                                                                <div class="col-sm-9">
-                                                                <input type="text" name="nilai_standar_kerapihan" class="form-control" value="<?php echo $nilai_standar_kerapihan; ?>" />
-                                                                </div>
+                                                            <div class="col-sm-6">
+                                                                <a href="index.php" class="btn btn-danger btn-rounded btn-fw">
+                                                                    <span>
+                                                                        Batal
+                                                                    </span>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
-
-
-                                                        <div class="form-group row">
-                                                            <div class="row">
-                                                                <div class="col-sm-6">
-                                                                    <input type="submit" class="btn btn-success btn-rounded btn-fw" name="edit" value="Update">
-                                                                </div>
-                                                                <div class="col-sm-6">
-                                                                    <a href="index.php" class="btn btn-danger btn-rounded btn-fw">
-                                                                        <span>
-                                                                            Batal
-                                                                        </span>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                 </form>
                                             </div>
                                         </div>

@@ -134,52 +134,16 @@ if ($_SESSION['level'] == "") {
                                                     <div class="row" style="margin-top: 20px;">
                                                         <div class="col-md-6">
                                                             <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI PSIKOMOTOR</label>
+                                                                <label class="col-sm-3 col-form-label">NILAI PENGETAHAUN</label>
                                                                 <div class="col-sm-9">
-                                                                    <select name="nilai_psikomotor_siswa" class="form-control">
+                                                                    <select name="nilai_pengetahuan_siswa" class="form-control">
                                                                         <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM psikomotor ORDER BY bobot_psikomotor DESC");
+                                                                        $query = mysqli_query($conn, "SELECT * FROM pengetahuan ORDER BY bobot_pengetahuan DESC");
                                                                         if ($query == false) {
                                                                             die("Terdapat Kesalahan : " . mysqli_error($conn));
                                                                         }
                                                                         while ($row = mysqli_fetch_array($query)) {
-                                                                            echo "<option value='$row[bobot_psikomotor]'>$row[range_penilaian_psikomotor]</option>";
-                                                                        }
-                                                                        ?>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI KOGNITIF</label>
-                                                                <div class="col-sm-9">
-                                                                    <select name="nilai_kognitif_siswa" class="form-control">
-                                                                        <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM kognitif ORDER BY bobot_kognitif DESC");
-                                                                        if ($query == false) {
-                                                                            die("Terdapat Kesalahan : " . mysqli_error($conn));
-                                                                        }
-                                                                        while ($row = mysqli_fetch_array($query)) {
-                                                                            echo "<option value='$row[bobot_kognitif]'>$row[range_penilaian_kognitif]</option>";
-                                                                        }
-                                                                        ?>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI AFEKTIF</label>
-                                                                <div class="col-sm-9">
-                                                                    <select name="nilai_afektif_siswa" class="form-control">
-                                                                        <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM afektif ORDER BY bobot_afektif DESC");
-                                                                        if ($query == false) {
-                                                                            die("Terdapat Kesalahan : " . mysqli_error($conn));
-                                                                        }
-                                                                        while ($row = mysqli_fetch_array($query)) {
-                                                                            echo "<option value='$row[bobot_afektif]'>$row[range_penilaian_afektif]</option>";
+                                                                            echo "<option value='$row[bobot_pengetahuan]'>$row[range_penilaian_pengetahuan]</option>";
                                                                         }
                                                                         ?>
                                                                     </select>
@@ -206,6 +170,24 @@ if ($_SESSION['level'] == "") {
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI KARAKTER</label>
+                                                                <div class="col-sm-9">
+                                                                    <select name="nilai_karakter_siswa" class="form-control">
+                                                                        <?php
+                                                                        $query = mysqli_query($conn, "SELECT * FROM karakter ORDER BY bobot_karakter DESC");
+                                                                        if ($query == false) {
+                                                                            die("Terdapat Kesalahan : " . mysqli_error($conn));
+                                                                        }
+                                                                        while ($row = mysqli_fetch_array($query)) {
+                                                                            echo "<option value='$row[bobot_karakter]'>$row[range_penilaian_karakter]</option>";
+                                                                        }
+                                                                        ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">NILAI ESKUL</label>
                                                                 <div class="col-sm-9">
                                                                     <select name="nilai_eskul_siswa" class="form-control">
@@ -216,42 +198,6 @@ if ($_SESSION['level'] == "") {
                                                                         }
                                                                         while ($row = mysqli_fetch_array($query)) {
                                                                             echo "<option value='$row[bobot_eskul]'>$row[range_penilaian_eskul]</option>";
-                                                                        }
-                                                                        ?>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI KEJUJURAN</label>
-                                                                <div class="col-sm-9">
-                                                                    <select name="nilai_kejujuran_siswa" class="form-control">
-                                                                        <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM kejujuran ORDER BY bobot_kejujuran DESC");
-                                                                        if ($query == false) {
-                                                                            die("Terdapat Kesalahan : " . mysqli_error($conn));
-                                                                        }
-                                                                        while ($row = mysqli_fetch_array($query)) {
-                                                                            echo "<option value='$row[bobot_kejujuran]'>$row[range_penilaian_kejujuran]</option>";
-                                                                        }
-                                                                        ?>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI KERAPIHAN</label>
-                                                                <div class="col-sm-9">
-                                                                    <select name="nilai_kerapihan_siswa" class="form-control">
-                                                                        <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM kerapihan ORDER BY bobot_kerapihan DESC");
-                                                                        if ($query == false) {
-                                                                            die("Terdapat Kesalahan : " . mysqli_error($conn));
-                                                                        }
-                                                                        while ($row = mysqli_fetch_array($query)) {
-                                                                            echo "<option value='$row[bobot_kerapihan]'>$row[range_penilaian_kerapihan]</option>";
                                                                         }
                                                                         ?>
                                                                     </select>

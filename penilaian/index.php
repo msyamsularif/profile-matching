@@ -144,26 +144,21 @@ if ($_SESSION['level'] == "") {
                                                     <th>Kelas</th>
                                                     <th>Tahun Angkatan</th>
                                                     <th>Alamat</th>
-                                                    <th>Nilai Psikomotor</th>
-                                                    <th>Nilai Kognitif</th>
-                                                    <th>Nilai Afektif</th>
+                                                    <th>Nilai Pengetahuan</th>
                                                     <th>Nilai Keterampilan</th>
+                                                    <th>Nilai karakter</th>
                                                     <th>Nilai Eskul</th>
-                                                    <th>Nilai Kejujuran</th>
-                                                    <th>Nilai Kerapihan</th>
+                                                    
                                                 </tr>
                                                 </thead>
                                                 <tbody>';
                                                 $no = 1;
 
                                                 while ($row = mysqli_fetch_array($query)) {
-                                                    $resultPsikomotor = $row['nilai_psikomotor_siswa'] - $row['nilai_standar_psikomotor'];
-                                                    $resultKognitif = $row['nilai_kognitif_siswa'] - $row['nilai_standar_kognitif'];
-                                                    $resultAfektif = $row['nilai_afektif_siswa'] - $row['nilai_standar_afektif'];
+                                                    $resultpengetahuan = $row['nilai_pengetahuan_siswa'] - $row['nilai_standar_pengetahuan'];
                                                     $resultKeterampilan = $row['nilai_keterampilan_siswa'] - $row['nilai_standar_keterampilan'];
+                                                    $resultKarakter = $row['nilai_karakter_siswa'] - $row['nilai_standar_karakter'];
                                                     $resultEskul = $row['nilai_eskul_siswa'] - $row['nilai_standar_eskul'];
-                                                    $resultKejujuran = $row['nilai_kejujuran_siswa'] - $row['nilai_standar_kejujuran'];
-                                                    $resultKerapihan = $row['nilai_kerapihan_siswa'] - $row['nilai_standar_kerapihan'];
 
                                                     echo "<tr>";
                                                     echo "<td>" . $no . "</td>";
@@ -172,13 +167,10 @@ if ($_SESSION['level'] == "") {
                                                     echo "<td>" . $row['kelas'] . "</td>";
                                                     echo "<td>" . $row['tahun_angkatan'] . "</td>";
                                                     echo "<td>" . $row['alamat'] . "</td>";
-                                                    echo "<td>" . $resultPsikomotor . "</td>";
-                                                    echo "<td>" . $resultKognitif . "</td>";
-                                                    echo "<td>" . $resultAfektif . "</td>";
+                                                    echo "<td>" . $resultpengetahuan . "</td>";
                                                     echo "<td>" . $resultKeterampilan . "</td>";
+                                                    echo "<td>" . $resultKarakter . "</td>";
                                                     echo "<td>" . $resultEskul . "</td>";
-                                                    echo "<td>" . $resultKejujuran . "</td>";
-                                                    echo "<td>" . $resultKerapihan . "</td>";
 
                                                     $no++;
                                                 }
@@ -192,13 +184,10 @@ if ($_SESSION['level'] == "") {
                                                     <th>Kelas</th>
                                                     <th>Tahun Angkatan</th>
                                                     <th>Alamat</th>
-                                                    <th>Nilai Psikomotor</th>
-                                                    <th>Nilai Kognitif</th>
-                                                    <th>Nilai Afektif</th>
+                                                    <th>Nilai Pengetahuan</th>  
                                                     <th>Nilai Keterampilan</th>
+                                                    <th>Nilai karakter</th>
                                                     <th>Nilai Eskul</th>
-                                                    <th>Nilai Kejujuran</th>
-                                                    <th>Nilai Kerapihan</th>
                                                 </tr>
                                             </tfoot>
                                             </table>';
@@ -263,13 +252,10 @@ if ($_SESSION['level'] == "") {
                                                     <th>Kelas</th>
                                                     <th>Tahun Angkatan</th>
                                                     <th>Alamat</th>
-                                                    <th>Nilai Psikomotor</th>
-                                                    <th>Nilai Kognitif</th>
-                                                    <th>Nilai Afektif</th>
+                                                    <th>Nilai Pengetahuan</th>  
                                                     <th>Nilai Keterampilan</th>
+                                                    <th>Nilai karakter</th>
                                                     <th>Nilai Eskul</th>
-                                                    <th>Nilai Kejujuran</th>
-                                                    <th>Nilai Kerapihan</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>';
@@ -277,13 +263,10 @@ if ($_SESSION['level'] == "") {
 
                                                 while ($row = mysqli_fetch_array($query)) {
                                                     // Nilai GAP
-                                                    $resultPsikomotor = $row['nilai_psikomotor_siswa'] - $row['nilai_standar_psikomotor'];
-                                                    $resultKognitif = $row['nilai_kognitif_siswa'] - $row['nilai_standar_kognitif'];
-                                                    $resultAfektif = $row['nilai_afektif_siswa'] - $row['nilai_standar_afektif'];
+                                                    $resultpengetahuan = $row['nilai_pengetahuan_siswa'] - $row['nilai_standar_pengetahuan'];
                                                     $resultKeterampilan = $row['nilai_keterampilan_siswa'] - $row['nilai_standar_keterampilan'];
+                                                    $resultKarakter = $row['nilai_karakter_siswa'] - $row['nilai_standar_karakter'];
                                                     $resultEskul = $row['nilai_eskul_siswa'] - $row['nilai_standar_eskul'];
-                                                    $resultKejujuran = $row['nilai_kejujuran_siswa'] - $row['nilai_standar_kejujuran'];
-                                                    $resultKerapihan = $row['nilai_kerapihan_siswa'] - $row['nilai_standar_kerapihan'];
 
                                                     echo "<tr>";
                                                     echo "<td>" . $no . "</td>";
@@ -292,13 +275,10 @@ if ($_SESSION['level'] == "") {
                                                     echo "<td>" . $row['kelas'] . "</td>";
                                                     echo "<td>" . $row['tahun_angkatan'] . "</td>";
                                                     echo "<td>" . $row['alamat'] . "</td>";
-                                                    echo "<td>" . nilaiStandar($resultPsikomotor) . "</td>";
-                                                    echo "<td>" . nilaiStandar($resultKognitif) . "</td>";
-                                                    echo "<td>" . nilaiStandar($resultAfektif) . "</td>";
+                                                    echo "<td>" . nilaiStandar($resultpengetahuan) . "</td>";
                                                     echo "<td>" . nilaiStandar($resultKeterampilan) . "</td>";
+                                                    echo "<td>" . nilaiStandar($resultKarakter) . "</td>";
                                                     echo "<td>" . nilaiStandar($resultEskul) . "</td>";
-                                                    echo "<td>" . nilaiStandar($resultKejujuran) . "</td>";
-                                                    echo "<td>" . nilaiStandar($resultKerapihan) . "</td>";
 
                                                     $no++;
                                                 }
@@ -312,13 +292,10 @@ if ($_SESSION['level'] == "") {
                                                     <th>Kelas</th>
                                                     <th>Tahun Angkatan</th>
                                                     <th>Alamat</th>
-                                                    <th>Nilai Psikomotor</th>
-                                                    <th>Nilai Kognitif</th>
-                                                    <th>Nilai Afektif</th>
+                                                    <th>Nilai Pengetahuan</th>  
                                                     <th>Nilai Keterampilan</th>
+                                                    <th>Nilai karakter</th>
                                                     <th>Nilai Eskul</th>
-                                                    <th>Nilai Kejujuran</th>
-                                                    <th>Nilai Kerapihan</th>
                                                 </tr>
                                             </tfoot>
                                             </table>';
@@ -361,7 +338,6 @@ if ($_SESSION['level'] == "") {
                                                     <th rowspan="2">Alamat</th>
                                                     <th colspan="3">Aspek Akademik</th>
                                                     <th colspan="3">Aspek Non Akademik</th>
-                                                    <th colspan="3">Aspek Karakter</th>
                                                 </tr>
                                                 <tr>
                                                     <th>CF</th>
@@ -370,9 +346,6 @@ if ($_SESSION['level'] == "") {
                                                     <th>CF</th>
                                                     <th>SF</th>
                                                     <th>NnA</th>
-                                                    <th>CF</th>
-                                                    <th>SF</th>
-                                                    <th>NK</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>';
@@ -398,26 +371,20 @@ if ($_SESSION['level'] == "") {
                                                 while ($row = mysqli_fetch_array($query)) {
 
                                                     // Data GAP
-                                                    $resultPsikomotor = $row['nilai_psikomotor_siswa'] - $row['nilai_standar_psikomotor'];
-                                                    $resultKognitif = $row['nilai_kognitif_siswa'] - $row['nilai_standar_kognitif'];
-                                                    $resultAfektif = $row['nilai_afektif_siswa'] - $row['nilai_standar_afektif'];
+                                                    $resultpengetahuan = $row['nilai_pengetahuan_siswa'] - $row['nilai_standar_pengetahuan'];
                                                     $resultKeterampilan = $row['nilai_keterampilan_siswa'] - $row['nilai_standar_keterampilan'];
+                                                    $resultKarakter = $row['nilai_karakter_siswa'] - $row['nilai_standar_karakter'];
                                                     $resultEskul = $row['nilai_eskul_siswa'] - $row['nilai_standar_eskul'];
-                                                    $resultKejujuran = $row['nilai_kejujuran_siswa'] - $row['nilai_standar_kejujuran'];
-                                                    $resultKerapihan = $row['nilai_kerapihan_siswa'] - $row['nilai_standar_kerapihan'];
 
                                                     // Data Perhitungan CF , SF dan Hasil
 
-                                                    $hasilAkademikCF = (nilaiStandar($resultPsikomotor) + nilaiStandar($resultKognitif)) / 2;
-                                                    $hasilAkademikSF = nilaiStandar($resultAfektif) / 1;
-                                                    $hasilNonAkademikCF = nilaiStandar($resultKeterampilan) / 1;
+                                                    $hasilAkademikCF = nilaiStandar($resultpengetahuan) / 1;
+                                                    $hasilAkademikSF = nilaiStandar($resultKeterampilan) / 1;
+                                                    $hasilNonAkademikCF = nilaiStandar($resultKarakter) / 1;
                                                     $hasilNonAkademikSF = nilaiStandar($resultEskul) / 1;
-                                                    $hasilKarakterCF = nilaiStandar($resultKejujuran) / 1;
-                                                    $hasilKarakterSF = nilaiStandar($resultKerapihan) / 1;
 
                                                     $Na = (($nilaiCF / 100) * $hasilAkademikCF) + (($nilaiSF / 100) * $hasilAkademikSF);
                                                     $NnA = (($nilaiCF / 100) * $hasilNonAkademikCF) + (($nilaiSF / 100) * $hasilNonAkademikSF);
-                                                    $NK = (($nilaiCF / 100) * $hasilKarakterCF) + (($nilaiSF / 100) * $hasilKarakterSF);
 
                                                     echo "<tr>";
                                                     echo "<td>" . $no . "</td>";
@@ -432,9 +399,6 @@ if ($_SESSION['level'] == "") {
                                                     echo "<td>" . $hasilNonAkademikCF . "</td>";
                                                     echo "<td>" . $hasilNonAkademikSF . "</td>";
                                                     echo "<td>" . $NnA . "</td>";
-                                                    echo "<td>" . $hasilKarakterCF . "</td>";
-                                                    echo "<td>" . $hasilKarakterSF . "</td>";
-                                                    echo "<td>" . $NK . "</td>";
 
                                                     $no++;
                                                 }
@@ -454,9 +418,6 @@ if ($_SESSION['level'] == "") {
                                                     <th>CF</th>
                                                     <th>SF</th>
                                                     <th>NnA</th>
-                                                    <th>CF</th>
-                                                    <th>SF</th>
-                                                    <th>NK</th>
                                                 </tr>
                                             </tfoot>
                                             </table>';
@@ -499,7 +460,6 @@ if ($_SESSION['level'] == "") {
                                                     <th>Alamat</th>
                                                     <th>NA</th>
                                                     <th>NnA</th>
-                                                    <th>NK</th>
                                                     <th><b>Hasil</b></th>
                                                 </tr>
                                                 </thead>
@@ -521,33 +481,27 @@ if ($_SESSION['level'] == "") {
                                                         $nilaiSF = $row1['nilai_kriteria'];
                                                     }
                                                 }
-                                                
+
                                                 // menampilkan data yang sudah di hitung
                                                 while ($row = mysqli_fetch_array($query)) {
 
                                                     // Data GAP
-                                                    $resultPsikomotor = $row['nilai_psikomotor_siswa'] - $row['nilai_standar_psikomotor'];
-                                                    $resultKognitif = $row['nilai_kognitif_siswa'] - $row['nilai_standar_kognitif'];
-                                                    $resultAfektif = $row['nilai_afektif_siswa'] - $row['nilai_standar_afektif'];
+                                                    $resultpengetahuan = $row['nilai_pengetahuan_siswa'] - $row['nilai_standar_pengetahuan'];
                                                     $resultKeterampilan = $row['nilai_keterampilan_siswa'] - $row['nilai_standar_keterampilan'];
+                                                    $resultKarakter = $row['nilai_karakter_siswa'] - $row['nilai_standar_karakter'];
                                                     $resultEskul = $row['nilai_eskul_siswa'] - $row['nilai_standar_eskul'];
-                                                    $resultKejujuran = $row['nilai_kejujuran_siswa'] - $row['nilai_standar_kejujuran'];
-                                                    $resultKerapihan = $row['nilai_kerapihan_siswa'] - $row['nilai_standar_kerapihan'];
 
                                                     // Data Perhitungan CF , SF dan Hasil
 
-                                                    $hasilAkademikCF = (nilaiStandar($resultPsikomotor) + nilaiStandar($resultKognitif)) / 2;
-                                                    $hasilAkademikSF = nilaiStandar($resultAfektif) / 1;
-                                                    $hasilNonAkademikCF = nilaiStandar($resultKeterampilan) / 1;
+                                                    $hasilAkademikCF = nilaiStandar($resultpengetahuan) / 1;
+                                                    $hasilAkademikSF = nilaiStandar($resultKeterampilan) / 1;
+                                                    $hasilNonAkademikCF = nilaiStandar($resultKarakter) / 1;
                                                     $hasilNonAkademikSF = nilaiStandar($resultEskul) / 1;
-                                                    $hasilKarakterCF = nilaiStandar($resultKejujuran) / 1;
-                                                    $hasilKarakterSF = nilaiStandar($resultKerapihan) / 1;
 
                                                     $Na = (($nilaiCF / 100) * $hasilAkademikCF) + (($nilaiSF / 100) * $hasilAkademikSF);
                                                     $NnA = (($nilaiCF / 100) * $hasilNonAkademikCF) + (($nilaiSF / 100) * $hasilNonAkademikSF);
-                                                    $NK = (($nilaiCF / 100) * $hasilKarakterCF) + (($nilaiSF / 100) * $hasilKarakterSF);
-                                                    $HA = (0.5 * $Na) + (0.3 * $NnA) + (0.2 * $NK);
-                                                    
+                                                    $HA = (0.6 * $Na) + (0.4 * $NnA);
+
                                                     echo "<tr>";
                                                     echo "<td>" . $no . "</td>";
                                                     echo "<td>" . $row['nis'] . "</td>";
@@ -557,12 +511,11 @@ if ($_SESSION['level'] == "") {
                                                     echo "<td>" . $row['alamat'] . "</td>";
                                                     echo "<td>" . $Na . "</td>";
                                                     echo "<td>" . $NnA . "</td>";
-                                                    echo "<td>" . $NK . "</td>";
                                                     echo "<td><b>" . $HA . "</b></td>";
 
                                                     $no++;
                                                 }
-                                                
+
                                                 echo '
                                                 </tbody>
                                                 <tfoot>
@@ -575,8 +528,7 @@ if ($_SESSION['level'] == "") {
                                                     <th>Alamat</th>
                                                     <th>NA</th>
                                                     <th>NnA</th>
-                                                    <th>NK</th>
-                                                    <th>Hasil</th>
+                                                    <th><b>Hasil</b></th>
                                                 </tr>
                                             </tfoot>
                                             </table>';

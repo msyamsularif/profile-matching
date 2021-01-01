@@ -86,25 +86,9 @@ if ($_SESSION['level'] == "") {
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR PSIKOMOTOR</label>
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR PENGETAHUAN</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" name="nilai_standar_psikomotor" class="form-control" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR KOGNITIF</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="text" name="nilai_standar_kognitif" class="form-control" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR AFEKTIF</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="text" name="nilai_standar_afektif" class="form-control" />
+                                                                    <input type="text" name="nilai_standar_pengetahuan" class="form-control" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -118,43 +102,34 @@ if ($_SESSION['level'] == "") {
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR KARAKTER</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_standar_karakter" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">NILAI STANDAR ESKUL</label>
                                                                 <div class="col-sm-9">
                                                                     <input type="text" name="nilai_standar_eskul" class="form-control" />
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR KEJUJURAN</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="text" name="nilai_standar_kejujuran" class="form-control" />
-                                                                </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <input type="submit" class="btn btn-success btn-rounded btn-fw" name="input" value="Input">
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI STANDAR KERAPIHAN</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="text" name="nilai_standar_kerapihan" class="form-control" />
-                                                                </div>
+                                                            <div class="col-sm-6">
+                                                                <a href="index.php" class="btn btn-danger btn-rounded btn-fw">
+                                                                    <span>Batal</span>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                        
-
-                                                        <div class="row">
-                                                            <div class="row">
-                                                                <div class="col-sm-6">
-                                                                    <input type="submit" class="btn btn-success btn-rounded btn-fw" name="input" value="Input">
-                                                                </div>
-                                                                <div class="col-sm-6">
-                                                                    <a href="index.php" class="btn btn-danger btn-rounded btn-fw">
-                                                                        <span>Batal</span>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                 </form>
                                             </div>
                                             <!--- end form input --->

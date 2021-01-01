@@ -11,16 +11,14 @@ if(isset($_POST['input'])){
     $kelas = $_POST["kelas"];
     $tahun_angkatan = $_POST["tahun_angkatan"];
     $alamat = $_POST["alamat"];
-    $nilai_psikomotor_siswa = $_POST["nilai_psikomotor_siswa"];
-    $nilai_kognitif_siswa = $_POST["nilai_kognitif_siswa"];
-    $nilai_afektif_siswa = $_POST["nilai_afektif_siswa"];
+    $nilai_pengetahuan_siswa = $_POST["nilai_pengetahuan_siswa"];
     $nilai_keterampilan_siswa = $_POST["nilai_keterampilan_siswa"];
+    $nilai_karakter_siswa = $_POST["nilai_karakter_siswa"];
     $nilai_eskul_siswa = $_POST["nilai_eskul_siswa"];
-    $nilai_kejujuran_siswa = $_POST["nilai_kejujuran_siswa"];
-    $nilai_kerapihan_siswa = $_POST["nilai_kerapihan_siswa"];
+    
 
     // buat query
-    $query = "INSERT INTO data_siswa VALUE ('$nis', '$nama_siswa', '$kelas', '$tahun_angkatan', '$alamat', '$nilai_psikomotor_siswa', '$nilai_kognitif_siswa', ' $nilai_afektif_siswa', '$nilai_keterampilan_siswa', '$nilai_eskul_siswa', '$nilai_kejujuran_siswa', '$nilai_kerapihan_siswa')";
+    $query = "INSERT INTO data_siswa VALUE ('$nis', '$nama_siswa', '$kelas', '$tahun_angkatan', '$alamat', '$nilai_pengetahuan_siswa', '$nilai_keterampilan_siswa', '$nilai_karakter_siswa','$nilai_eskul_siswa')";
     $row = mysqli_query($conn, $query);
 
     // apakah query simpan berhasil?
@@ -36,5 +34,3 @@ if(isset($_POST['input'])){
 } else {
     die("Akses dilarang...");
 }
-
-?>
