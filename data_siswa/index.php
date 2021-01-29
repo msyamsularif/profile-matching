@@ -30,6 +30,7 @@ if ($_SESSION['level'] == "") {
     <style>
       table {
         width: 100%;
+        text-align: center;
       }
 
       #example_filter {
@@ -102,17 +103,29 @@ if ($_SESSION['level'] == "") {
                         echo '<table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
                         <thead>
                         <tr>
-                          <th>NO</th>
-                          <th>NIS</th>
-                          <th>Nama Siswa</th>
-                          <th>Kelas</th>
-                          <th>Tahun Angkatan</th>
-                          <th>Alamat</th>
-                          <th>Nilai Pengetahuan</th>
-                          <th>Nilai Keterampilan</th>
-                          <th>Nilai Karakter</th>
-                          <th>Nilai Eskul</th>
-                          <th>Action</th>
+                          <th rowspan="2">NO</th>
+                          <th rowspan="2">NIS</th>
+                          <th rowspan="2">Nama Siswa</th>
+                          <th rowspan="2">Kelas</th>
+                          <th rowspan="2">Tahun Angkatan</th>
+                          <th rowspan="2">Alamat</th>
+                          <th colspan="5">Pengetahuan</th>
+                          <th colspan="5">Keterampilan</th>
+                          <th rowspan="2">Nilai Karakter</th>
+                          <th rowspan="2">Nilai Eskul</th>
+                          <th rowspan="2">Action</th>
+                        </tr>
+                        <tr>
+                            <th>Nilai Agama</th>
+                            <th>Nilai PKN</th>
+                            <th>Nilai B.Indonesia</th>
+                            <th>Nilai IPA</th>
+                            <th>Nilai PJOK</th>
+                            <th>Nilai Agama</th>
+                            <th>Nilai PKN</th>
+                            <th>Nilai B.Indonesia</th>
+                            <th>Nilai IPA</th>
+                            <th>Nilai PJOK</th>
                         </tr>
                         </thead>
                         <tbody>';
@@ -126,8 +139,16 @@ if ($_SESSION['level'] == "") {
                           echo "<td>" . $row['kelas'] . "</td>";
                           echo "<td>" . $row['tahun_angkatan'] . "</td>";
                           echo "<td>" . $row['alamat'] . "</td>";
-                          echo "<td>" . $row['nilai_pengetahuan_siswa'] . "</td>";
-                          echo "<td>" . $row['nilai_keterampilan_siswa'] . "</td>";
+                          echo "<td>" . $row['nilai_pengetahuan_agama_siswa'] . "</td>";
+                          echo "<td>" . $row['nilai_pengetahuan_pkn_siswa'] . "</td>";
+                          echo "<td>" . $row['nilai_pengetahuan_bindo_siswa'] . "</td>";
+                          echo "<td>" . $row['nilai_pengetahuan_ipa_siswa'] . "</td>";
+                          echo "<td>" . $row['nilai_pengetahuan_pjok_siswa'] . "</td>";
+                          echo "<td>" . $row['nilai_keterampilan_agama_siswa'] . "</td>";
+                          echo "<td>" . $row['nilai_keterampilan_pkn_siswa'] . "</td>";
+                          echo "<td>" . $row['nilai_keterampilan_bindo_siswa'] . "</td>";
+                          echo "<td>" . $row['nilai_keterampilan_ipa_siswa'] . "</td>";
+                          echo "<td>" . $row['nilai_keterampilan_pjok_siswa'] . "</td>";
                           echo "<td>" . $row['nilai_karakter_siswa'] . "</td>";
                           echo "<td>" . $row['nilai_eskul_siswa'] . "</td>";
 
@@ -138,17 +159,25 @@ if ($_SESSION['level'] == "") {
                         </tbody>
                         <tfoot>
                           <tr>
-                              <th>NO</th>
-                              <th>NIS</th>
-                              <th>Nama Siswa</th>
-                              <th>Kelas</th>
-                              <th>Tahun Angkatan</th>
-                              <th>Alamat</th>
-                              <th>Nilai Pengetahuan</th>
-                              <th>Nilai Keterampilan</th>
-                              <th>Nilai Karakter</th>
-                              <th>Nilai Eskul</th>
-                              <th>Action</th>
+                            <th>NO</th>
+                            <th>NIS</th>
+                            <th>Nama Siswa</th>
+                            <th>Kelas</th>
+                            <th>Tahun Angkatan</th>
+                            <th>Alamat</th>
+                            <th>Nilai Agama</th>
+                            <th>Nilai PKN</th>
+                            <th>Nilai B.Indonesia</th>
+                            <th>Nilai IPA</th>
+                            <th>Nilai PJOK</th>
+                            <th>Nilai Agama</th>
+                            <th>Nilai PKN</th>
+                            <th>Nilai B.Indonesia</th>
+                            <th>Nilai IPA</th>
+                            <th>Nilai PJOK</th>
+                            <th>Nilai Karakter</th>
+                            <th>Nilai Eskul</th>
+                            <th>Action</th>
                           </tr>
                       </tfoot>
                       </table>';

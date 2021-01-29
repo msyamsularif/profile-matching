@@ -29,8 +29,16 @@ if (isset($_GET['nis'])) {
     $kelas = $row["kelas"];
     $tahun_angkatan = $row["tahun_angkatan"];
     $alamat = $row["alamat"];
-    $nilai_pengetahuan_siswa = $row["nilai_pengetahuan_siswa"];
-    $nilai_keterampilan_siswa = $row["nilai_keterampilan_siswa"];
+    $nilai_pengetahuan_agama_siswa = $row["nilai_pengetahuan_agama_siswa"];
+    $nilai_pengetahuan_pkn_siswa = $row["nilai_pengetahuan_pkn_siswa"];
+    $nilai_pengetahuan_bindo_siswa = $row["nilai_pengetahuan_bindo_siswa"];
+    $nilai_pengetahuan_ipa_siswa = $row["nilai_pengetahuan_ipa_siswa"];
+    $nilai_pengetahuan_pjok_siswa = $row["nilai_pengetahuan_pjok_siswa"];
+    $nilai_keterampilan_agama_siswa = $row["nilai_keterampilan_agama_siswa"];
+    $nilai_keterampilan_pkn_siswa = $row["nilai_keterampilan_pkn_siswa"];
+    $nilai_keterampilan_bindo_siswa = $row["nilai_keterampilan_bindo_siswa"];
+    $nilai_keterampilan_ipa_siswa = $row["nilai_keterampilan_ipa_siswa"];
+    $nilai_keterampilan_pjok_siswa = $row["nilai_keterampilan_pjok_siswa"];
     $nilai_karakter_siswa = $row["nilai_karakter_siswa"];
     $nilai_eskul_siswa = $row["nilai_eskul_siswa"];
 } else {
@@ -159,69 +167,112 @@ if (isset($_GET['nis'])) {
                                                         </div>
                                                     </div>
 
+                                                    <!-- Nilai Pengetahuan -->
                                                     <div class="container-fluid" style="margin-top: 50px;">
                                                         <div class="row">
-                                                            <h6>Edit Nilai Siswa</h6>
+                                                            <h6>Input Nilai Pengetahuan</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" style="margin-top: 20px;">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI AGAMA</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_pengetahuan_agama_siswa" class="form-control" value="<?php echo $nilai_pengetahuan_agama_siswa; ?>"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI PKN</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_pengetahuan_pkn_siswa" class="form-control" value="<?php echo $nilai_pengetahuan_pkn_siswa; ?>"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI B.INDONESIA</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_pengetahuan_bindo_siswa" class="form-control" value="<?php echo $nilai_pengetahuan_bindo_siswa; ?>"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI IPA</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_pengetahuan_ipa_siswa" class="form-control"value="<?php echo $nilai_pengetahuan_ipa_siswa; ?>" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI PJOK</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_pengetahuan_pjok_siswa" class="form-control" value="<?php echo $nilai_pengetahuan_pjok_siswa; ?>"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Nilai Keterampilan -->
+                                                    <div class="container-fluid" style="margin-top: 50px;">
+                                                        <div class="row">
+                                                            <h6>Input Nilai Keterampilan</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" style="margin-top: 20px;">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI AGAMA</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_keterampilan_agama_siswa" class="form-control" value="<?php echo $nilai_keterampilan_agama_siswa; ?>"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI PKN</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_keterampilan_pkn_siswa" class="form-control" value="<?php echo $nilai_keterampilan_pkn_siswa; ?>"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI B.INDONESIA</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_keterampilan_bindo_siswa" class="form-control" value="<?php echo $nilai_keterampilan_bindo_siswa; ?>"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI IPA</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_keterampilan_ipa_siswa" class="form-control" value="<?php echo $nilai_keterampilan_ipa_siswa; ?>"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-3 col-form-label">NILAI PJOK</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" name="nilai_keterampilan_pjok_siswa" class="form-control" value="<?php echo $nilai_keterampilan_pjok_siswa; ?>"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Non Akademik -->
+                                                    <div class="container-fluid" style="margin-top: 50px;">
+                                                        <div class="row">
+                                                            <h6>Edit Nilai Non Akademik</h6>
                                                         </div>
                                                     </div>
 
                                                     <div class="row" style="margin-top: 20px;">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI PENGETAHUAN</label>
-                                                                <div class="col-sm-9">
-                                                                    <select name="nilai_pengetahuan_siswa" class="form-control">
-                                                                        <?php
-                                                                        $query = mysqli_query($conn, "SELECT bobot_pengetahuan, nilai_pengetahuan_siswa, range_penilaian_pengetahuan FROM data_siswa INNER JOIN pengetahuan ON nilai_pengetahuan_siswa=bobot_pengetahuan WHERE nis='$nis'");
-                                                                        if ($query == false) {
-                                                                            die("Terdapat Kesalahan : " . mysqli_error($conn));
-                                                                        }
-                                                                        while ($rows = mysqli_fetch_array($query)) {
-                                                                            echo "<option value='$rows[nilai_pengetahuan_siswa]' selected>$rows[range_penilaian_pengetahuan]</option>";
-                                                                        }
-
-                                                                        $query = mysqli_query($conn, "SELECT * FROM pengetahuan ORDER BY bobot_pengetahuan DESC");
-                                                                        if ($query == false) {
-                                                                            die("Terdapat Kesalahan : " . mysqli_error($conn));
-                                                                        }
-                                                                        while ($row1 = mysqli_fetch_array($query)) {
-                                                                            if ($row1["bobot_pengetahuan"] != $row["nilai_pengetahuan_siswa"]) {
-                                                                                echo "<option value='$row1[bobot_pengetahuan]'>$row1[range_penilaian_pengetahuan]</option>";
-                                                                            }
-                                                                        }
-                                                                        ?>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">NILAI KETERAMPILAN</label>
-                                                                <div class="col-sm-9">
-                                                                    <select name="nilai_keterampilan_siswa" class="form-control">
-                                                                        <?php
-                                                                        $query = mysqli_query($conn, "SELECT * FROM data_siswa INNER JOIN keterampilan ON nilai_keterampilan_siswa=bobot_keterampilan WHERE nis='$nis'");
-                                                                        if ($query == false) {
-                                                                            die("Terdapat Kesalahan : " . mysqli_error($conn));
-                                                                        }
-                                                                        while ($rows = mysqli_fetch_array($query)) {
-                                                                            echo "<option value='$rows[nilai_keterampilan_siswa]' selected>$rows[range_penilaian_keterampilan]</option>";
-                                                                        }
-
-                                                                        $query = mysqli_query($conn, "SELECT * FROM keterampilan ORDER BY bobot_keterampilan DESC");
-                                                                        if ($query == false) {
-                                                                            die("Terdapat Kesalahan : " . mysqli_error($conn));
-                                                                        }
-                                                                        while ($row1 = mysqli_fetch_array($query)) {
-                                                                            if ($row1["bobot_keterampilan"] != $row["nilai_keterampilan_siswa"]) {
-                                                                                echo "<option value='$row1[bobot_keterampilan]'>$row1[range_penilaian_keterampilan]</option>";
-                                                                            }
-                                                                        }
-                                                                        ?>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">NILAI KARAKTER</label>
