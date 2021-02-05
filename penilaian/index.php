@@ -524,65 +524,17 @@ if ($_SESSION['level'] == "") {
                             </div>
                             <!---- Data Tabel Konversi---->
 
-                            <!-- Datatable Siswa Kelas 1 -->
-                            <div class="container">
+                            <!-- Datatable Siswa Kelas 6 -->
+                            <div class="col-lg-12">
                                 <div class="row">
                                     <div class="col-lg-6 grid-margin stretch-card">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="card-description">Tabel Peringkat Siswa Kelas 1</h4>
+                                                <h4 class="card-description">Tabel Peringkat Siswa Kelas 6</h4>
                                                 <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
                                                     <div class="row">
                                                         <?php
-                                                        datatableSiswa(1, "tabelKelasSatu");
-                                                        ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Datatable Siswa Kelas 2 -->
-                                    <div class="col-lg-6 grid-margin stretch-card">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h4 class="card-description">Tabel Peringkat Siswa Kelas 2</h4>
-                                                <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
-                                                    <div class="row">
-                                                        <?php
-                                                        datatableSiswa(2, "tabelKelasDua");
-                                                        ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Datatable Siswa Kelas 3 -->
-                                    <div class="col-lg-6 grid-margin stretch-card">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h4 class="card-description">Tabel Peringkat Siswa Kelas 3</h4>
-                                                <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
-                                                    <div class="row">
-                                                        <?php
-                                                        datatableSiswa(3, "tabelKelasTiga");
-                                                        ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Datatable Siswa Kelas 4 -->
-                                    <div class="col-lg-6 grid-margin stretch-card">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h4 class="card-description">Tabel Peringkat Siswa Kelas 4</h4>
-                                                <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
-                                                    <div class="row">
-                                                        <?php
-                                                        datatableSiswa(4, "tabelKelasEmpat");
+                                                        datatableSiswa(6, "tabelKelasEnam");
                                                         ?>
                                                     </div>
                                                 </div>
@@ -606,15 +558,63 @@ if ($_SESSION['level'] == "") {
                                         </div>
                                     </div>
 
-                                    <!-- Datatable Siswa Kelas 6 -->
+                                    <!-- Datatable Siswa Kelas 4 -->
                                     <div class="col-lg-6 grid-margin stretch-card">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="card-description">Tabel Peringkat Siswa Kelas 6</h4>
+                                                <h4 class="card-description">Tabel Peringkat Siswa Kelas 4</h4>
                                                 <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
                                                     <div class="row">
                                                         <?php
-                                                        datatableSiswa(6, "tabelKelasEnam");
+                                                        datatableSiswa(4, "tabelKelasEmpat");
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Datatable Siswa Kelas 3 -->
+                                    <div class="col-lg-6 grid-margin stretch-card">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="card-description">Tabel Peringkat Siswa Kelas 3</h4>
+                                                <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+                                                    <div class="row">
+                                                        <?php
+                                                        datatableSiswa(3, "tabelKelasTiga");
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Datatable Siswa Kelas 2 -->
+                                    <div class="col-lg-6 grid-margin stretch-card">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="card-description">Tabel Peringkat Siswa Kelas 2</h4>
+                                                <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+                                                    <div class="row">
+                                                        <?php
+                                                        datatableSiswa(2, "tabelKelasDua");
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Datatable Siswa Kelas 1 -->
+                                    <div class="col-lg-6 grid-margin stretch-card">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="card-description">Tabel Peringkat Siswa Kelas 1</h4>
+                                                <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+                                                    <div class="row">
+                                                        <?php
+                                                        datatableSiswa(1, "tabelKelasSatu");
                                                         ?>
                                                     </div>
                                                 </div>
